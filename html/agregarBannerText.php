@@ -1,4 +1,35 @@
+<?php
+include "../php/conexion.php";
+session_start();
 
+// Verificar si la sesión está activa y obtener el ID del profesor
+if (!isset($_SESSION['idProfesor'])) {
+    header("Location: ../html/login.php");
+    exit();
+}
+
+$idProfesor = $_SESSION['idProfesor'];
+
+// Obtener la materia del profesor
+$sql_materia = "SELECT materia FROM profesor WHERE idProfesor = ?";
+$stmt_materia = $conn->prepare($sql_materia);
+
+if ($stmt_materia === false) {
+    die('Error en la consulta SQL: ' . $conn->error);
+}
+
+$stmt_materia->bind_param('i', $idProfesor);
+$stmt_materia->execute();
+$result_materia = $stmt_materia->get_result();
+
+if ($result_materia->num_rows > 0) {
+    $materia = $result_materia->fetch_assoc()['materia'];
+} else {
+    die('No se encontró la materia para el profesor.');
+}
+
+$stmt_materia->close();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +61,7 @@
             <div class="cardform">
                 <h1 class="h1">Agregar Contenido a Clase</h1>
                 <form action="../php/agregar_contenidoBanner.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="materia" value="<?php echo htmlspecialchars($materia); ?>">
+                    <input type="hidden" name="materia" value="<?php echo htmlspecialchars($materia, ENT_QUOTES, 'UTF-8'); ?>">
                     <div class="inputBox1">
                         <input type="text" name="tituloBanner" required>
                         <span>Título del Banner</span>
@@ -62,37 +93,6 @@
             </thead>
             <tbody>
             <?php
-            include "../php/conexion.php";
-            session_start();
-            
-            // Verificar si la sesión está activa y obtener el ID del profesor
-            if (!isset($_SESSION['idProfesor'])) {
-                header("Location: ../html/login.php");
-                exit();
-            }
-            
-            $idProfesor = $_SESSION['idProfesor'];
-            
-            // Obtener la materia del profesor
-            $sql_materia = "SELECT materia FROM profesor WHERE idProfesor = ?";
-            $stmt_materia = $conn->prepare($sql_materia);
-            
-            if ($stmt_materia === false) {
-                die('Error en la consulta SQL: ' . $conn->error);
-            }
-            
-            $stmt_materia->bind_param('i', $idProfesor);
-            $stmt_materia->execute();
-            $result_materia = $stmt_materia->get_result();
-            
-            if ($result_materia->num_rows > 0) {
-                $materia = $result_materia->fetch_assoc()['materia'];
-            } else {
-                die('No se encontró la materia para el profesor.');
-            }
-            
-            $stmt_materia->close();
-            
             // Obtener contenido del banner
             $sql_contenido = "SELECT * FROM contenidoBanner";
             $result_contenido = $conn->query($sql_contenido);

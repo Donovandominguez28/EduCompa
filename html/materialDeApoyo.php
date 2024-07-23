@@ -17,6 +17,7 @@
     <body>
       <a class="btn btn-primary" href="#" role="button">Publicar</a>
       
+      
       <main>
         <a href="../html/agregarBannerText.php" class="add-button">Agregar banner y texto</a>
         <section class="py-5 text-center container">
