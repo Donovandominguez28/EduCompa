@@ -30,18 +30,6 @@
           <span class="item-description">Chat</span>
         </a>
       </li>
-      <li class="side-item">
-        <a href="../html/juegos.php">
-          <i class="bi bi-controller"></i>
-          <span class="item-description">Juegos</span>
-        </a>
-      </li>
-      <li class="side-item">
-        <a href="#">
-          <i class="bi bi-pen"></i>
-          <span class="item-description">Refuerzo Avanzo</span>
-        </a>
-      </li>
       
     </ul>
     <button id="open_btn">

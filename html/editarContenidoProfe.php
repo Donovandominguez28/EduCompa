@@ -43,9 +43,9 @@ $conn->close();
     <div class="side-bar">
         <br>
         <br>
-        <?php include "../html/perfilAdmin.php"; ?>
+        <?php include "../html/perfilProfesor.php"; ?>
         <hr>
-        <?php include "../html/navAdmin.php"; ?>
+        <?php include "../html/navProfesor.php"; ?>
     </div>
 
     <section class="home-grid">
