@@ -24,6 +24,12 @@ $result = $stmt->get_result();
 if ($result === false) {
     die("Error al ejecutar la consulta: " . $stmt->error);
 }
+include "../php/session_check.php";
+// Verificar si el usuario no está autenticado y redirigir a la página de inicio de sesión
+if (!isLoggedIn()) {
+    header("Location: ../html/login.html");
+    exit(); // Asegurarse de que el script se detenga después de la redirección
+}
 ?>
 
 <!DOCTYPE html>

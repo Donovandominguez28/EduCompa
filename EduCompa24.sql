@@ -109,6 +109,9 @@ CREATE TABLE contenidoAdicional (
 
 create table contenidoclases (
     idContenido int auto_increment primary key,
+     contenido varchar(100),
+    multimedia longblob,
+    link varchar(100),
     idClase2 int,
     foreign key (idClase2) references clases(idClase)
 );
@@ -147,6 +150,9 @@ create table estudiantesClases (
 create table clasesProfesor (
     idClase4 int,
     idProfesor2 int,
+	contenido varchar(100),
+    multimedia longblob,
+    link varchar(100),
     foreign key (idClase4) references clases(idClase),
     foreign key (idProfesor2) references profesor(idProfesor)
 );

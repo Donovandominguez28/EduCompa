@@ -10,7 +10,7 @@ if (isset($_GET['idContenido'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $idClase1 = $row['idClase1'];
+        $idClase2 = $row['idClase2'];
         $contenido = $row['contenido'];
         $link = $row['link'];
     } else {
@@ -55,7 +55,7 @@ $conn->close();
                 <form action="../php/editar_contenido.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="idContenido" value="<?php echo $idContenido; ?>">
                     <div class="inputBox1">
-                        <input type="text" name="idClase1" value="<?php echo $idClase1; ?>" required>
+                        <input type="text" name="idClase1" value="<?php echo $idClase2; ?>" required>
                         <span>ID Clase</span>
                     </div>
                     <div class="inputBox1">

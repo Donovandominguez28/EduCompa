@@ -3,7 +3,7 @@ include "../php/conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener idClase desde el formulario
-    $idClase = $_POST['idClase1'];
+    $idClase = $_POST['idClase2'];
     $contenido = $_POST['contenido'];
     $link = $_POST['link'];
 
