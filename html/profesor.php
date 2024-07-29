@@ -28,27 +28,6 @@
 
     <section class="home-grid">
         <h1 class="heading">¡Bienvenido al sistema de gestion de la plataforma web EduCompa!</h1>
-        <div class="admin-text">
-         <h1>Administrador</h1>
-         <p>El administrador es responsable de las 
-            operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
-            dentro de la plataforma. Estas tareas incluyen la 
-            creación de nuevos perfiles de usuarios y contenido 
-            educativo, la lectura y supervisión de datos y 
-            estadísticas de uso, la actualización de información
-             y recursos, y la eliminación de datos obsoletos 
-             o incorrectos.</p>
-             <br>
-         <p>Además, el administrador 
-            asegura el correcto funcionamiento 
-            de la plataforma, maneja problemas 
-            técnicos, implementa mejoras y garantiza 
-            la seguridad y privacidad de los datos de 
-            los usuarios. Su objetivo principal es 
-            facilitar una experiencia educativa efectiva 
-            y segura para los estudiantes y las 
-            instituciones que utilizan EduCompa.</p>
-        </div>
     </section>
 
     <!-- custom js file link -->

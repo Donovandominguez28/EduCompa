@@ -22,15 +22,13 @@ if (isset($_SESSION['idProfesor'])) {
         $rol = htmlspecialchars($profesor_data['rol']);
     } else {
         // Manejo de caso en que no se encuentre el profesor
-        $fotoPerfil = null;
-        $nombreCompleto = "Nombre no disponible";
-        $materiaInpartida = "Materia no especificada";
-        $rol = "Rol no especificado";
+        header("Location: ../html/login.html");
+    exit();
     }
 
 } else {
     // Redirigir al inicio de sesión si no hay una sesión activa
-    header("Location: ../html/login.php");
+    header("Location: ../html/login.html");
     exit();
 }
 ?>

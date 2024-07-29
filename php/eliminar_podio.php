@@ -9,17 +9,24 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['idPodio'])) {
     $sql = "DELETE FROM podio WHERE idPodio = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $idPodio);
-
+    
     if ($stmt->execute()) {
-        header("location: ../html/podio.php");
-        echo "Registro eliminado correctamente.";
+        echo '<script>
+                alert("Registro eliminado correctamente.");
+                window.location.href = "../html/podio.php";
+              </script>';
     } else {
-        echo "Error al eliminar el registro: " . $conn->error;
+        echo '<script>
+                alert("Error al eliminar el registro: ' . $conn->error . '");
+              </script>';
     }
 
     $stmt->close();
     $conn->close();
+    exit();
 } else {
-    echo "Acceso no autorizado.";
+    echo '<script>
+            alert("Acceso no autorizado.");
+          </script>';
 }
 ?>

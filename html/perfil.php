@@ -1,18 +1,21 @@
 <?php
 include "../php/datos_usuario.php";
 include "../php/conexion.php";
+include "../php/session_check.php";
+// Verificar si el usuario no está autenticado y redirigir a la página de inicio de sesión
+if (!isLoggedIn()) {
+    header("Location: ../html/login.html");
+    exit(); // Asegurarse de que el script se detenga después de la redirección
+}
 
 $carnetEstudiante = $_SESSION['carnet']; // Obtén el ID del estudiante desde la sesión
 
-include "../php/conexion.php";
 
 // Obtener publicaciones del estudiante actual
 $sql = "SELECT idMural, imagenMural, titulo, informacion FROM mural WHERE carnet2 = $carnetEstudiante";
 $result = $conn->query($sql);
 
-if ($result === false) {
-    die("Error al ejecutar la consulta: " . $conn->error);
-}
+
 ?>
 
 
@@ -53,9 +56,12 @@ include "../html/sidebar.php";
 
             </div>
             <div class="datos-perfil">
-            <h4 class="titulo-usuario"><?php echo $nombreCompleto; ?></h4>
-                <h4 class="titulo-usuario"><?php echo $usuario; ?></h4>
-                <p class="bio-usuario">Soy un estudiante de Desarollo de software Hola Mundo.</p>
+            <h4>Nombre: <?php echo $nombreCompleto; ?></h4>
+            <h4>Usuario: <?php echo $usuario; ?></h4>
+            <h4><?php echo $añoBachi; ?> Año</h4>
+            <h4>Seccion <?php echo $seccion; ?></h4>
+            <h4>Especialidad: <?php echo $especialidad; ?></h4>
+<br>
                 <ul class="lista-perfil">
                     <li>35 Seguidores</li>
                     <li>7 Seguidos</li>

@@ -3,6 +3,12 @@ include "../php/conexion.php";
 include "../php/datos_usuario.php";
 include "../html/header.php";
 include "../html/sidebar.php";
+include "../php/session_check.php";
+// Verificar si el usuario no está autenticado y redirigir a la página de inicio de sesión
+if (!isLoggedIn()) {
+    header("Location: ../html/login.html");
+    exit(); // Asegurarse de que el script se detenga después de la redirección
+}
 ?>
 
 <body>

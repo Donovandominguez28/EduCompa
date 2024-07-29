@@ -43,7 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $titulo, $descripcion, $imagenClaseContenido, $nombreProfesor, $materia);
 
     if ($stmt->execute()) {
-        header("Location: ../html/clasesProfesor.php");
+        echo '<script>
+                alert("Nueva clase agregada exitosamente.");
+                window.location.href = "../html/clasesProfesor.php";
+              </script>';
         exit();
     } else {
         echo "Error al agregar clase: " . $stmt->error;

@@ -19,8 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("isss", $top, $fotoContenido, $nombreApellido, $descripcion);
 
         if ($stmt->execute()) {
-            header("location: ../html/podio.php");
-            echo "Datos insertados correctamente.";
+            echo '<script>
+                alert("Usuario agregado al podio con exito.");
+                window.location.href = "../html/podio.php";
+              </script>';
         } else {
             echo "Error al insertar datos: " . $conn->error;
         }

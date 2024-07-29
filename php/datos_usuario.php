@@ -18,6 +18,11 @@ if (isset($_SESSION['carnet'])) {
         $fotoPerfil = $row['fotoPerfil'];
         $nombreCompleto = $row['nombreCompleto'];
         $usuario = $row['usuario'];
+        $añoBachi = $row['añoBachi'];
+        $seccion = $row['seccion'];
+        $especialidad = $row['especialidad'];
+
+
     } else {
         // Manejo de error si el usuario no se encuentra
         $fotoPerfil = ''; // Puedes asignar una imagen predeterminada aquí si lo deseas

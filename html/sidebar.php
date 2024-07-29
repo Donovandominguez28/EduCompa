@@ -1,3 +1,4 @@
+
 <a href="../html/index.php"><img src="../img/educompalogo.jpg" alt="logo" class="logo"></a>
 <nav id="sidebar">
   <div id="sidebar_content">
@@ -30,7 +31,7 @@
           <span class="item-description">Chat</span>
         </a>
       </li>
-      
+
     </ul>
     <button id="open_btn">
       <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>

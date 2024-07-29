@@ -30,6 +30,8 @@
         <div class="button-container">
           <a  href="../html/estudiantesadmin.php" class="btnn">Estudiantes</a>
             <a  href="../html/profesoradmin.php" class="btnn">Profesores</a>
+            <a  href="../html/administradoresAdmin.php" class="btnn">Administradores</a>
+
         </div>
     </section>
 
