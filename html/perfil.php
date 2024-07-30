@@ -60,7 +60,9 @@ include "../html/sidebar.php";
             <h4>Usuario: <?php echo $usuario; ?></h4>
             <h4><?php echo $añoBachi; ?> Año</h4>
             <h4>Seccion <?php echo $seccion; ?></h4>
-            <h4>Especialidad: <?php echo $especialidad; ?></h4>
+            <!-- <h4>Especialidad:  
+                < echo $especialidad; ?>
+            </h4> -->
 <br>
                 <ul class="lista-perfil">
                     <li>35 Seguidores</li>
