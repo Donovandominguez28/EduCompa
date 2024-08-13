@@ -1,0 +1,57 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+:root[data-bs-theme='light'] {
+  --bg-color: #ffffff; /* white */
+  --text-color: #000000; /* black */
+  --navbar-bg: #f8f9fa; /* Light mode navbar background */
+}
+
+:root[data-bs-theme='dark'] {
+  --bg-color: #000000; /* black */
+  --text-color: #ffffff; /* white */
+  --navbar-bg: #343a40; /* Dark mode navbar background */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.btnFloat {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  position: absolute;
+  top: 45px;
+  margin-top: -1px;
+}
+
+.dropdown-submenu:hover .dropdown-menu,
+.dropdown-submenu .show {
+  display: block; /* Muestra el submenú cuando se activa */
+}
+
+.dropdown-item {
+  color: var(--text-color);
+}
+
+.dropdown-item:hover {
+  background-color: var(--text-color);
+  color: var(--navbar-bg);
+}
+
+/* Asegúrate de que los iconos sean visibles en el modo automático */
+.navbar .nav-link i{
+  color: var(--text-color);
+}

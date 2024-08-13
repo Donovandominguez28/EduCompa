@@ -1,0 +1,96 @@
+<!-- <?php
+include "../php/conexion.php";
+include "../php/datos_usuario.php";
+include "../html/header.php";
+include "../html/sidebar.php";
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="../css/chats.css">
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <header class="header" data-header>
+        <div class="container">
+    
+          <h1>
+            <a href="../html/index.html" class="logo">EduCompa<span class="span">.</span></a>
+          </h1>
+    
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+    
+              <li class="nav-item">
+                <a href="../html/perfilUsuario.html" class="navbar-link" data-nav-link><i class="bi bi-people"></i> Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a href="../html/aulaVirtual.html" class="navbar-link" data-nav-link><i class="bi bi-backpack3"></i> Aula Virtual</a>
+              </li>
+    
+              <li class="nav-item">
+                <a href="../html/biblioteca.html" class="navbar-link" data-nav-link><i class="bi bi-book"></i> Biblioteca</a>
+              </li>
+    
+              <li class="nav-item">
+                <a href="../html/users.html" class="navbar-link" data-nav-link><i class="bi bi-chat-dots-fill"></i> Chats</a>
+              </li>
+              <li class="nav-item">
+                <a href="../html/Juegos.html" class="navbar-link" data-nav-link><i class="bi bi-controller"></i> Juegos</a>
+              </li>
+              <li class="nav-item">
+                <a href="../html/refuerzoAvanzo.html" class="navbar-link" data-nav-link><i class="bi bi-pen"></i> Refuerzo Avanzo</a>
+              </li>
+              <li class="nav-item">
+                <a href="../html/login.html" class="navbar-link" data-nav-link><i class="bi bi-person"></i> Inicia sesion/Registrate</a>
+              </li>
+            </ul>
+          </nav>
+    
+          <div class="header-btn-group">
+      
+    
+            <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+              <span class="line top"></span>
+              <span class="line middle"></span>
+              <span class="line bottom"></span>
+            </button>
+          </div>
+    
+        </div>
+      </header>
+
+    <div class="wrapper">
+        <section class="users">
+            <header>
+                <div class="content">
+                    <img id="user_avatar" src="data:image/jpeg;base64,<?php echo base64_encode($fotoPerfil); ?>" alt="Avatar del usuario">
+                    <div class="details">
+                        <span><!--  <?php echo htmlspecialchars($nombreCompleto); ?>-->Donovan Domínguez</span>
+                        <p>
+                            <!--  <?php echo htmlspecialchars($usuario); ?> -->Minivan</p>
+                    </div>
+                </div>
+            </header>
+            <div class="search">
+                <span class="text">Selecciona un usuario para iniciar el chat</span>
+                <input type="text" placeholder="Digite el nombre del estudiante...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="users-list">
+                <!-- Aquí se cargará la lista de usuarios mediante JavaScript -->
+            </div>
+        </section>
+    </div>
+    <!--  
+    
+    
+    -->
+
+    <script src="../js/users.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

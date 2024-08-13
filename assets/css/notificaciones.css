@@ -1,0 +1,136 @@
+:root {
+    --exito: #3ab65c;
+    --error: #bf333b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor-toast {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.toast {
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+.toast.exito {
+    background: var(--exito);
+}
+
+.toast.error {
+    background: var(--error);
+}
+
+.toast .icono {
+    margin-right: 15px;
+}
+
+.toast .icono svg {
+    width: 20px;
+    height: 20px;
+}
+
+.toast .texto {
+    flex: 1;
+}
+
+.toast .texto .titulo {
+    font-weight: 600;
+}
+
+.toast .texto .descripcion {
+    font-size: 14px;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-cerrar:hover {
+    opacity: 0.7;
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    .contenedor-toast {
+        right: 20px;
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .toast {
+        padding: 10px;
+    }
+
+    .toast .icono svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .toast .texto .descripcion {
+        font-size: 12px;
+    }
+
+    .btn-cerrar {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-toast {
+        right: 10px;
+        bottom: 10px;
+        gap: 5px;
+    }
+
+    .toast {
+        padding: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toast .icono {
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+
+    .toast .icono svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .toast .texto .titulo {
+        font-size: 14px;
+    }
+
+    .toast .texto .descripcion {
+        font-size: 12px;
+    }
+
+    .btn-cerrar {
+        align-self: flex-end;
+        font-size: 12px;
+    }
+}

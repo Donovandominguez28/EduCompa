@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCompa</title>
+
+  <!-- 
+    - favicon
+  -->
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">    
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="../html/index.html" class="logo">EduCompa<span class="span">.</span></a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="nav-item">
+            <a href="../html/perfilUsuario.html" class="navbar-link" data-nav-link><i class="bi bi-people"></i> Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a href="../html/aulaVirtual.html" class="navbar-link" data-nav-link><i class="bi bi-backpack3"></i> Aula Virtual</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../html/biblioteca.html" class="navbar-link" data-nav-link><i class="bi bi-book"></i> Biblioteca</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="navbar-link" data-nav-link><i class="bi bi-chat-dots-fill"></i> Chats</a>
+          </li>
+          <li class="nav-item">
+            <a href="../html/Juegos.html" class="navbar-link" data-nav-link><i class="bi bi-controller"></i> Juegos</a>
+          </li>
+          <li class="nav-item">
+            <a href="../html/refuerzoAvanzo.html" class="navbar-link" data-nav-link><i class="bi bi-pen"></i> Refuerzo Avanzo</a>
+          </li>
+          <li class="nav-item">
+            <a href="../html/login.html" class="navbar-link" data-nav-link><i class="bi bi-person"></i> Inicia sesion/Registrate</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-btn-group">
+  
+
+        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+
+  
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero reveal" id="home">
+        <video autoplay muted loop id="bg-video">
+          <source src="../images/bibliotecaFondo.mp4" type="video/mp4">
+        </video>
+        <div class="container reveal">
+          <div class="hero-content reveal">
+            <p class="hero-subtitle" style="color: white;" >¡El maravilloso mundo de la literatura!</p>
+            <h2 class="h1 hero-title">¡Biblioteca EduCompa!</h2>
+            <p class="hero-text">
+                La lectura es una puerta abierta a mundos infinitos. 
+                A través de los libros, podemos viajar en el tiempo, 
+                explorar tierras desconocidas y sumergirnos en las
+                 mentes de personajes fascinantes. La lectura no 
+                 solo enriquece nuestro vocabulario y nos brinda 
+                 conocimiento, sino que también nos permite 
+                 comprender diferentes perspectivas y culturas.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #CTA
+         -->
+
+     <!-- Sección 1 -->
+<section class="section section-divider white cta reveal" style="background-image: url('../images/estantes2.jpg')">
+  <h1 class="h1 hero-title " style="color: white;">Libros disponibles:</h1>
+<br>
+<br>
+<div class="wrapper reveal">
+	<div class="card reveal">
+		<img src="../images/portadaCienAñosSoledad.jpg" alt="">
+		<div class="info">
+			<h1>Cien años de soledad</h1>
+			<p>La obra maestra de Gabriel García Márquez que narra la historia de la familia Buendía a lo largo de varias generaciones en el pueblo ficticio de Macondo.</p>
+			<a href="#" class="btnn">Leer Más</a>
+		</div>
+	</div>
+	<div class="card reveal">
+		<img src="../images/donQuijote.jpg" alt="">
+		<div class="info">
+			<h1>Don Quijote de la Mancha</h1>
+			<p>La novela de Miguel de Cervantes que cuenta las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza.</p>
+			<a href="#" class="btnn">Leer Más</a>
+		</div>
+	</div>
+	<div class="card reveal">
+		<img src="../images/casaEspiritus.jpg" alt="">
+		<div class="info">
+			<h1>La casa de los espíritus</h1>
+			<p>Isabel Allende nos ofrece una saga familiar que mezcla realismo mágico con la historia de Chile, narrando la vida de la familia Trueba.</p>
+			<a href="#" class="btnn">Leer Más</a>
+		</div>
+	</div>
+</div>
+
+  </div>
+</section>
+    </article>
+  </main>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to topx" data-back-top-btn><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../js/script.js" defer></script>
+  
+  <footer class="footer-distributed reveal">
+    <div class="footer-left">
+      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
+      <p class="footer-links">
+            <a href="../html/index.html"><i class="bi bi-house">Inicio</i></a>
+            |
+            <a href="../html/perfilUsuario.html"><i class="bi bi-people">Perfil</i></a>
+            |
+            <a href="#"><i class="bi bi-backpack3">Aula Virtual</i></a>
+            <br>
+            |
+            <a href="../html/biblioteca.html"><i class="bi bi-book">Biblioteca</i></a>
+            |
+            <a href="#"><i class="bi bi-chat-dots-fill">Chat</i></a>
+            |
+            <a href="../html/Juegos.html"><i class="bi bi-controller">Juegos</i></a>
+            |
+            <br>
+            |
+            <a href="#"><i class="bi bi-pen">Refuerzo Avanzo</i></a>
+        </p>
+
+        <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="bi bi-map"></i>
+            <p>Colegio Don Bosco</p>
+        </div>
+
+        <div>
+            <i class="bi bi-phone"></i>
+            <p>503 7681-4348</p>
+        </div>
+        <div>
+            <i class="bi bi-envelope"></i>  
+            <p><a href="">estudiante20230698@cdb.edu.sv
+            </a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>Sobre Nosotros</span>
+            <strong>EduCompa</strong>
+            Es nuestra plataforma educativa
+        </p>
+        <div class="footer-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+          
+  <!-- 
+    - ionicon link
+  -->
+
+</body>
+
+</html>
