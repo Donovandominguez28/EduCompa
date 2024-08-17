@@ -1,0 +1,176 @@
+<?php
+include '../php/session_check2.php';
+include '../php/datosPerfil.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCompa</title>
+
+  <!-- 
+    - favicon
+  -->
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">    
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <?php include '../html/navBar.php'; ?>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero reveal" id="home">
+        <video autoplay muted loop id="bg-video">
+          <source src="../images/aulaVirtual.mp4" type="video/mp4">
+        </video>
+        <div class="container reveal">
+          <div class="hero-content reveal">
+            <p class="hero-subtitle" style="color: white;" >¡Gestiona tus clases!</p>
+            <h2 class="h1 hero-title">¡Aula Virtual!</h2>
+            <p class="hero-text">
+              ¡Bienvenido al Aula Virtual! 
+              Aquí puedes acceder a tus clases, 
+              participar en discusiones y 
+              realizar tareas, todo en un solo 
+              lugar. Navegar es fácil e intuitivo, 
+              permitiéndote concentrarte en aprender 
+              y crecer. ¡Explora y descubre lo que puedes 
+              lograr con nuestra aula virtual!
+      
+              </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #CTA
+         -->
+
+     <!-- Sección 1 -->
+<section class="section section-divider white cta reveal" style="background-image: url('../images/clases3.jpg')">
+    <div class="containeraula reveal">
+      <h1 class="h1 hero-title" style="color: white;">Clases disponibles:</h1>
+        <div class="card__containeraula reveal">
+           <article class="card__articleaula">
+              <img src="../images/gokuuu.png" alt="image" class="card__imgaula">
+
+              <div class="card__dataaula">
+                 <h3 class="card__titleaula">Matematicas</h3>
+                 <span class="card__priceaula">Prof.Son Goku
+                 </span>
+              </div>
+
+              <img src="../images/matematicas.jpg" alt="image" class="card__bgaula">
+              
+              <a href="../html/verClases.php" class="card__buttonaula">
+                 Revisar Clase<i class="bi bi-arrow-right"></i>
+              </a>
+           </article>
+        
+        </div>
+     </div>
+</section>
+
+
+      
+
+    </article>
+  </main>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to topx" data-back-top-btn><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../js/script.js" defer></script>
+  
+  <footer class="footer-distributed reveal">
+    <div class="footer-left">
+      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
+      <p class="footer-links">
+            <a href="../html/index.html"><i class="bi bi-house">Inicio</i></a>
+            |
+            <a href="../html/perfilUsuario.html"><i class="bi bi-people">Perfil</i></a>
+            |
+            <a href="#"><i class="bi bi-backpack3">Aula Virtual</i></a>
+            |
+            <br>
+            <a href="#"><i class="bi bi-book">Biblioteca</i></a>
+            |
+            <a href="#"><i class="bi bi-chat-dots-fill">Chat</i></a>
+            |
+            <a href="../html/Juegos.html"><i class="bi bi-controller">Juegos</i></a>
+            |
+            <br>
+            <a href="#"><i class="bi bi-pen">Refuerzo Avanzo</i></a>
+        </p>
+
+        <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="bi bi-map"></i>
+            <p>Colegio Don Bosco</p>
+        </div>
+
+        <div>
+            <i class="bi bi-phone"></i>
+            <p>503 7681-4348</p>
+        </div>
+        <div>
+            <i class="bi bi-envelope"></i>  
+            <p><a href="">estudiante20230698@cdb.edu.sv
+            </a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>Sobre Nosotros</span>
+            <strong>EduCompa</strong>
+            Es nuestra plataforma educativa
+        </p>
+        <div class="footer-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+          
+  <!-- 
+    - ionicon link
+  -->
+
+</body>
+
+</html>

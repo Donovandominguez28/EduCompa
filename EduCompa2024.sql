@@ -13,7 +13,8 @@ create table estudiantes (
     especialidad varchar(100),
     email varchar(100) unique,
     contrasena varchar(255),
-    rol varchar(100) default 'Estudiante'
+    rol varchar(100) default 'Estudiante',
+    banner longblob default null
 );
 create table profesor (
     idProfesor int primary key,

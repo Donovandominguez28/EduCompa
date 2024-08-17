@@ -1,10 +1,7 @@
-/* importando google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 .bodyy {
@@ -32,10 +29,11 @@
 .quiz_box.activeQuiz,
 .result_box.activeResult {
     opacity: 1;
-    z-index: 5;
+    z-index: 0;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
+
 
 .start_btn button {
     font-size: 28px; /* tamaño de fuente aumentado */

@@ -10,7 +10,7 @@ function isLoggedIn() {
 }
 
 if (!isLoggedIn()) {
-    header("Location: ../html/login.html");
+    header("Location: ../html/index.php");
     exit(); // Asegurarse de que el script se detenga después de la redirección
 }
 ?>

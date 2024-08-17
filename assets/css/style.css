@@ -1707,7 +1707,7 @@ footer {
 .header-btn-group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 
@@ -1855,7 +1855,7 @@ footer {
 }
 
 .cta .section-title {
-  color: var(--white);
+  color: var(--champagne-pink);
   line-height: 1.5;
   letter-spacing: -2px;
   max-width: 17ch;
@@ -1863,8 +1863,11 @@ footer {
 }
 
 .cta .section-text {
-  color: var(--gainsboro);
   margin-block: 25px 20px;
+}
+.section-text{
+  font-size: 20px;
+  color: white;
 }
 
 .cta .btn { margin-inline: auto; }

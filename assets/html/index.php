@@ -49,7 +49,17 @@ include '../html/navBar.php';
         <div class="container reveal">
           <div class="hero-content reveal">
             <p class="hero-subtitle" style="color: white;" >¡Alcanza tus metas!</p>
-            <h2 class="h1 hero-title">¡Bienvenid@ usuario a EduCompa!</h2>
+            <?php if (isLoggedIn()) {
+            echo '
+            <h2 class="h1 hero-title">¡Bienvenid@ ' . htmlspecialchars($usuario) . ' a EduCompa!</h2>
+            ';
+          }else{
+          echo '
+          <h2 class="h1 hero-title">¡Bienvenid@ a EduCompa!</h2>
+          ';
+          } 
+          ?>
+
             <p class="hero-text">
               En nuestra red social educativa, creemos firmemente que cada estudiante tiene el potencial para alcanzar sus metas y sueños. Sabemos que el camino hacia el éxito académico puede estar lleno de desafíos, pero con las herramientas y el apoyo adecuados, todo es posible.
             </p>
@@ -155,7 +165,7 @@ include '../html/navBar.php';
 </section>
 
 <!-- Sección 3 -->
-<section class="section section-divider white cta reveal" style="background-image: url('../images/educacion.jpg ');">
+<section class="section section-divider white cta reveal" style="background-image: url('../images/educacion5.jpg ');">
   <div class="container reveal">
       <div class="cta-content" style="float: left;">
           <h2 class="h2 section-title">¡Innovación Educativa!</h2>
@@ -184,60 +194,7 @@ include '../html/navBar.php';
   -->
   <script src="../js/script.js" defer></script>
   
-  <footer class="footer-distributed reveal">
-    <div class="footer-left">
-      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
-      <p class="footer-links">
-            <a href="../html/index.html"><i class="bi bi-house">Inicio</i></a>
-            |
-            <a href="../html/perfilUsuario.html"><i class="bi bi-people">Perfil</i></a>
-            |
-            <a href="#"><i class="bi bi-backpack3">Aula Virtual</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-book">Biblioteca</i></a>
-            |
-            <a href="#"><i class="bi bi-chat-dots-fill">Chat</i></a>
-            |
-            <a href="../html/Juegos.html"><i class="bi bi-controller">Juegos</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-pen">Refuerzo Avanzo</i></a>
-        </p>
-
-        <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
-    </div>
-
-    <div class="footer-center">
-        <div>
-            <i class="bi bi-map"></i>
-            <p>Colegio Don Bosco</p>
-        </div>
-
-        <div>
-            <i class="bi bi-phone"></i>
-            <p>503 7681-4348</p>
-        </div>
-        <div>
-            <i class="bi bi-envelope"></i>  
-            <p><a href="">estudiante20230698@cdb.edu.sv
-            </a></p>
-        </div>
-    </div>
-    <div class="footer-right">
-        <p class="footer-company-about">
-            <span>Sobre Nosotros</span>
-            <strong>EduCompa</strong>
-            Es nuestra plataforma educativa
-        </p>
-        <div class="footer-icons">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-        </div>
-    </div>
-</footer>
+<?php include '../html/footer.php'; ?>
           
   <!-- 
     - ionicon link

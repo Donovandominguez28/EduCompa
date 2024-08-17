@@ -25,6 +25,15 @@ if (isset($_SESSION['carnet'])) {
     $stmt->close();
 }
 ?>
+<style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background-color: white;
+        }
+    </style>
+    
 <header class="header" data-header>
     <div class="container">
 
@@ -41,23 +50,24 @@ if (isLoggedIn()) {
         <a href="../html/perfilUsuario.php" class="navbar-link" data-nav-link><i class="bi bi-people"></i> Perfil</a>
     </li>
     <li class="nav-item">
-        <a href="../html/aulaVirtual.html" class="navbar-link" data-nav-link><i class="bi bi-backpack3"></i> Aula Virtual</a>
+        <a href="../html/aulaVirtual.php" class="navbar-link" data-nav-link><i class="bi bi-backpack3"></i> Aula Virtual</a>
     </li>
     <li class="nav-item">
-        <a href="../html/biblioteca.html" class="navbar-link" data-nav-link><i class="bi bi-book"></i> Biblioteca</a>
+        <a href="../html/biblioteca.php" class="navbar-link" data-nav-link><i class="bi bi-book"></i> Biblioteca</a>
     </li>
     <li class="nav-item">
-        <a href="#" class="navbar-link" data-nav-link><i class="bi bi-chat-dots-fill"></i> Chats</a>
+        <a href="../html/users.php" class="navbar-link" data-nav-link><i class="bi bi-chat-dots-fill"></i> Chats</a>
     </li>
     <li class="nav-item">
-        <a href="../html/refuerzoAvanzo.html" class="navbar-link" data-nav-link><i class="bi bi-pen"></i> Refuerzo Avanzo</a>
-    </li>';
+        <a href="../html/refuerzoAvanzo.php" class="navbar-link" data-nav-link><i class="bi bi-pen"></i> Refuerzo Avanzo</a>
+    </li>
+    <li class="nav-item">
+                    <a href="../html/Juegos.php" class="navbar-link" data-nav-link><i class="bi bi-controller"></i> Juegos</a>
+                </li>';
 }
 ?>
                 
-                <li class="nav-item">
-                    <a href="../html/Juegos.html" class="navbar-link" data-nav-link><i class="bi bi-controller"></i> Juegos</a>
-                </li>
+                
                 
                 <?php if (isset($_SESSION['carnet'])): ?>
                     <li class="nav-item profile-section">

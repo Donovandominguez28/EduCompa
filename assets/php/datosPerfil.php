@@ -19,18 +19,20 @@ if (isset($_SESSION['carnet'])) {
         $añoBachi = $row['añoBachi'];
         $seccion = $row['seccion'];
         $especialidad = $row['especialidad'];
+        $banner = $row['banner'];
 
 
     } else {
         // Manejo de error si el usuario no se encuentra
-        $fotoPerfil = ''; // Puedes asignar una imagen predeterminada aquí si lo deseas
+        $fotoPerfil = '../images/userrr.png'; // Puedes asignar una imagen predeterminada aquí si lo deseas
         $nombreCompleto = 'Usuario no encontrado';
         $usuario = '';
+        $banner ='../images/defaultBanner.jpg';
     }
     $stmt->close();
 } else {
     // Manejo de error si no hay sesión iniciada
-    $fotoPerfil = ''; // Puedes asignar una imagen predeterminada aquí si lo deseas
+    $fotoPerfil = '../images/userrr.png'; // Puedes asignar una imagen predeterminada aquí si lo deseas
     $nombreCompleto = 'Usuario no encontrado';
     $usuario = '';
 }
