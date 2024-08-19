@@ -19,16 +19,9 @@ include '../php/datosPerfil.php';
   -->
   <link rel="stylesheet" href="../css/style.css">
 
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">    
-
 </head>
 
-<body id="top">
+<body id="#top">
 
   <!-- 
     - #HEADER
@@ -47,11 +40,11 @@ include '../php/datosPerfil.php';
         <video autoplay muted loop id="bg-video">
           <source src="../images/aulaVirtual.mp4" type="video/mp4">
         </video>
-        <div class="container reveal">
-          <div class="hero-content reveal">
-            <p class="hero-subtitle" style="color: white;" >¡Gestiona tus clases!</p>
-            <h2 class="h1 hero-title">¡Aula Virtual!</h2>
-            <p class="hero-text">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-subtitle reveal" style="color: white;" >¡Gestiona tus clases!</p>
+            <h2 class="h1 hero-title reveal">¡Aula Virtual!</h2>
+            <p class="hero-text reveal">
               ¡Bienvenido al Aula Virtual! 
               Aquí puedes acceder a tus clases, 
               participar en discusiones y 
@@ -72,26 +65,50 @@ include '../php/datosPerfil.php';
 
      <!-- Sección 1 -->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/clases3.jpg')">
-    <div class="containeraula reveal">
-      <h1 class="h1 hero-title" style="color: white;">Clases disponibles:</h1>
-        <div class="card__containeraula reveal">
-           <article class="card__articleaula">
-              <img src="../images/gokuuu.png" alt="image" class="card__imgaula">
+    <div class="containeraula">
+      <?php
+include '../php/conexion.php';
 
-              <div class="card__dataaula">
-                 <h3 class="card__titleaula">Matematicas</h3>
-                 <span class="card__priceaula">Prof.Son Goku
-                 </span>
-              </div>
+// Fetch classes from the database
+$sql = "SELECT c.*
+        FROM clases c
+        LEFT JOIN estudiantes e ON c.carnet7 = e.carnet";
+$result = $conn->query($sql);
 
-              <img src="../images/matematicas.jpg" alt="image" class="card__bgaula">
-              
-              <a href="../html/verClases.php" class="card__buttonaula">
-                 Revisar Clase<i class="bi bi-arrow-right"></i>
-              </a>
-           </article>
-        
-        </div>
+if ($result->num_rows > 0) {
+  echo'<h1 class="h1 hero-title reveal" style="color: white;">Clases disponibles:</h1>';
+    while ($row = $result->fetch_assoc()) {
+        $idClase = $row['idClase'];
+        $imagenClase = $row['imagenClase'];
+        $materia = $row['materia'];
+        $nombreProfesor = $row['nombreProfesor'];
+
+        // Convert the BLOB image data to base64 for embedding in HTML
+        $imagenClaseBase64 = base64_encode($imagenClase);
+        $imagenClaseSrc = "data:image/jpeg;base64," . $imagenClaseBase64;
+
+        echo '<div class="card__containeraula reveal">';
+        echo '   <article class="card__articleaula">';
+        echo '      <img src="../images/userrr.png" alt="profile picture" class="card__imgaula" style="border-radius:50%;">';
+        echo '      <div class="card__dataaula">';
+        echo '         <h3 class="card__titleaula" style="color: white; font-size: 15px;">' . htmlspecialchars($materia) . '</h3>';
+        echo '         <span class="card__priceaula" style="color: white; font-size: 15px;">Prof. ' . htmlspecialchars($nombreProfesor) . '</span>';
+        echo '      </div>';
+        echo '      <img src="' . $imagenClaseSrc . '" alt="class background" class="card__bgaula">';
+        echo '<a href="../html/verClases.php?idClase=' . $idClase . '" class="card__buttonaula" style="color: black; font-size: 12px;">';
+echo '   Revisar Clase <i class="bi bi-arrow-right"></i>';
+echo '</a>';
+
+        echo '   </article>';
+        echo '</div>';
+    }
+} else {
+    echo '<h1 class="h1 hero-title reveal" style="color: white;">No se encontraron clases disponibles.</h1>';
+}
+
+$conn->close();
+?>
+
      </div>
 </section>
 
@@ -112,64 +129,7 @@ include '../php/datosPerfil.php';
   -->
   <script src="../js/script.js" defer></script>
   
-  <footer class="footer-distributed reveal">
-    <div class="footer-left">
-      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
-      <p class="footer-links">
-            <a href="../html/index.html"><i class="bi bi-house">Inicio</i></a>
-            |
-            <a href="../html/perfilUsuario.html"><i class="bi bi-people">Perfil</i></a>
-            |
-            <a href="#"><i class="bi bi-backpack3">Aula Virtual</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-book">Biblioteca</i></a>
-            |
-            <a href="#"><i class="bi bi-chat-dots-fill">Chat</i></a>
-            |
-            <a href="../html/Juegos.html"><i class="bi bi-controller">Juegos</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-pen">Refuerzo Avanzo</i></a>
-        </p>
-
-        <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
-    </div>
-
-    <div class="footer-center">
-        <div>
-            <i class="bi bi-map"></i>
-            <p>Colegio Don Bosco</p>
-        </div>
-
-        <div>
-            <i class="bi bi-phone"></i>
-            <p>503 7681-4348</p>
-        </div>
-        <div>
-            <i class="bi bi-envelope"></i>  
-            <p><a href="">estudiante20230698@cdb.edu.sv
-            </a></p>
-        </div>
-    </div>
-    <div class="footer-right">
-        <p class="footer-company-about">
-            <span>Sobre Nosotros</span>
-            <strong>EduCompa</strong>
-            Es nuestra plataforma educativa
-        </p>
-        <div class="footer-icons">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-        </div>
-    </div>
-</footer>
-          
-  <!-- 
-    - ionicon link
-  -->
+<?php include "../html/footer.php"?>
 
 </body>
 

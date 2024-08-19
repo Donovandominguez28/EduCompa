@@ -1,8 +1,7 @@
 <?php
 include '../php/session_check2.php';
 include '../php/datosPerfil.php';
-$carnet = $_SESSION['carnet'];
-
+    
 // Check if a banner is set; if not, use a default image
 $bannerImg = !empty($banner) ? 'data:'  . ';base64,' . base64_encode($banner) : '../images/defaultBanner.jpg';
 ?>
@@ -16,32 +15,33 @@ $bannerImg = !empty($banner) ? 'data:'  . ';base64,' . base64_encode($banner) : 
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <?php include '../html/navBar.php'; ?>
-<body>
+<body id="#top">
 
-    <section class="perfil-usuario reveal">
+    <section class="perfil-usuario">
         <div class="contenedor-perfil">
-            <div class="portada-perfil" style="background-image: url('<?php echo $bannerImg; ?>');">
+            <div class="portada-perfil reveal" style="background-image: url('<?php echo $bannerImg; ?>');">
                 <div class="sombra"></div>
-                <div class="avatar-perfil">
+                <div class="avatar-perfil reveal">
                     <img src="data:<?php echo $mimeType; ?>;base64,<?php echo base64_encode($fotoPerfil); ?>" alt="Foto de perfil">
                 </div>
-                <div class="datos-perfil">
+                <div class="datos-perfil reveal">
                     <h4 style="font-size:20px;">Nombre: <?php echo htmlspecialchars($nombreCompleto); ?></h4>
                     <h4 style="font-size:20px;">Usuario: <?php echo htmlspecialchars($usuario); ?></h4>
                     <h4 style="font-size:20px;">Bachillerato: <?php echo htmlspecialchars($añoBachi); ?> Año</h4>
                     <h4 style="font-size:20px;">Sección: <?php echo htmlspecialchars($seccion); ?></h4>
                     <h4 style="font-size:20px;">Especialidad: <?php echo htmlspecialchars($especialidad); ?></h4>
-                    <ul class="lista-perfil">
+                    <!-- <ul class="lista-perfil">
                         <li>35 Seguidores</li>
                         <li>7 Seguidos</li>
                         <li>32 Publicaciones</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
-            <div class="menu-perfil">
+            <div class="menu-perfil reveal">
                 <ul>
                     <li><a type="button" href="../html/publicarMural.php" class="btn btn-primary" style="color:white;"><i class="bi bi-megaphone"></i> Publicar</a></li>
                     <li><a type="button" href="../html/editarPerfil.php" class="btn btn-primary" style="color:white;"><i class="bi bi-pencil-square"></i> Editar Perfil</a></li>
+                    <li><a type="button" href="../html/perfiles.php" class="btn btn-primary" style="color:white;"><i class="bi bi-search"></i> Mas perfiles...</a></li>
                 </ul>
             </div>
         </div>
@@ -49,7 +49,7 @@ $bannerImg = !empty($banner) ? 'data:'  . ';base64,' . base64_encode($banner) : 
 
     <br><br><br><br><br>
     <section class="section section-divider white cta reveal" style="background-image: url('../images/pared2.jpg')">
-    <div class="containerrr reveal">
+    <div class="containerrr">
         <h1 class="titulo-usuario reveal" style="color: white; font-size: 40px;">Mural del Conocimiento</h1>
         <div class="card__container reveal">
         <?php
@@ -148,11 +148,7 @@ if (mysqli_num_rows($result) > 0) {
     <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn><i class="bi bi-arrow-up-short"></i></a>
     <script src="../js/script.js" defer></script>
     <script>
-function confirmDelete(idMural) {
-    if (confirm('¿Estás seguro de que deseas eliminar esta publicación?')) {
-        window.location.href = '../php/eliminarMural.php?idMural=' + idMural;
-    }
-}
+
 </script>
 
 </body>

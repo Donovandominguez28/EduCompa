@@ -18,9 +18,6 @@
   <!-- 
     - google font link
   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">    
 
 </head>
 
@@ -46,21 +43,21 @@ include '../html/navBar.php';
         <video autoplay muted loop id="bg-video">
           <source src="../images/videoFondo3.mp4" type="video/mp4">
         </video>
-        <div class="container reveal">
-          <div class="hero-content reveal">
-            <p class="hero-subtitle" style="color: white;" >¡Alcanza tus metas!</p>
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-subtitle reveal" style="color: white;" >¡Alcanza tus metas!</p>
             <?php if (isLoggedIn()) {
             echo '
-            <h2 class="h1 hero-title">¡Bienvenid@ ' . htmlspecialchars($usuario) . ' a EduCompa!</h2>
+            <h2 class="h1 hero-title reveal">¡Bienvenid@ ' . htmlspecialchars($usuario) . ' a EduCompa!</h2>
             ';
           }else{
           echo '
-          <h2 class="h1 hero-title">¡Bienvenid@ a EduCompa!</h2>
+          <h2 class="h1 hero-title reveal">¡Bienvenid@ a EduCompa!</h2>
           ';
           } 
           ?>
 
-            <p class="hero-text">
+            <p class="hero-text reveal">
               En nuestra red social educativa, creemos firmemente que cada estudiante tiene el potencial para alcanzar sus metas y sueños. Sabemos que el camino hacia el éxito académico puede estar lleno de desafíos, pero con las herramientas y el apoyo adecuados, todo es posible.
             </p>
           </div>
@@ -70,78 +67,71 @@ include '../html/navBar.php';
       <!-- 
         - #CTA
          -->
-         <?php if (isLoggedIn()) {
-    echo '<section class="section section-divider white cta reveal" style="background-image: url(\'../images/fondoPodio2.jpg\')">
-        <h1 class="h1 hero-title" style="color: gold;">Podio de los mejores estudiantes</h1>
-        <div class="containerp reveal">
-            <div class="colp">
-                <div class="cardp">
-                    <a href="#" class="card-thumb">
-                        <img src="../images/maria.jpg" class="imgp" alt="Imagen de Laura Sánchez">
-                        <div class="job-title">Top 1 - Matemáticas</div>
-                    </a>
-                    <div class="card-content">
-                        <h2>
-                            <a href="#">Laura Sánchez</a>
-                        </h2>
-                        <p>
-                            Laura ha demostrado un talento excepcional en matemáticas, alcanzando el primer lugar en el podio de la Olimpiada Nacional de Matemáticas. Su capacidad para resolver problemas complejos y su dedicación la han convertido en una referente para sus compañeros.
-                        </p>
-                        <div class="social-links">
-                            Laura es conocida por su pasión por los números y su voluntad de ayudar a otros a entender conceptos difíciles. Planea estudiar Ingeniería en el futuro para continuar desarrollando sus habilidades analíticas.
+         <?php
+// Check if the user is logged in
+if (isLoggedIn()) {
+    // Database connection (replace with your own connection details)
+include '../php/conexion.php';
+    // Query to get the top 3 students from the podio table
+    $sql = "SELECT * FROM podio ORDER BY top ASC LIMIT 3";
+    $result = $conn->query($sql);
+
+    // Check if there are results
+    if ($result->num_rows > 0) {
+        echo '<section class="section section-divider white cta reveal" style="background-image: url(\'../images/fondoPodio2.jpg\')">
+            <h1 class="h1 hero-title reveal" style="color: gold;">Podio de los mejores estudiantes</h1>
+            <div class="containerp">';
+
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            // Encode image to base64 if it's a BLOB
+            $foto = $row['foto'];
+            $fotoBase64 = base64_encode($foto);
+            $fotoSrc = 'data:image/jpeg;base64,' . $fotoBase64;
+            
+            echo '<div class="colp">
+                    <div class="cardp reveal">
+                        <a href="#" class="card-thumb">
+                            <img src="' . $fotoSrc . '" class="imgp" alt="Imagen de ' . htmlspecialchars($row['nombreApellido']) . '">
+                            <div class="job-title">Top ' . htmlspecialchars($row['top']) . '</div>
+                        </a>
+                        <div class="card-content">
+                            <h2>
+                                <a href="#">' . htmlspecialchars($row['nombreApellido']) . '</a>
+                            </h2>
+                            <p>
+                                <p href="#">' . htmlspecialchars($row['descripcion']) . '</p>
+                            </p>
+                            <div class="social-links">
+                                <!-- Additional details can be placed here -->
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="colp">
-                <div class="cardp">
-                    <a href="#" class="card-thumb">
-                        <img src="../images/juan.jpg" class="imgp" alt="Imagen de Miguel Pérez">
-                        <div class="job-title">Top 2 - Ciencias</div>
-                    </a>
-                    <div class="card-content">
-                        <h2>
-                            <a href="#">Miguel Pérez</a>
-                        </h2>
-                        <p>
-                            Miguel obtuvo el segundo lugar en la competencia de Ciencias a nivel nacional, destacándose por su profundo entendimiento de la biología y la química. Su enfoque meticuloso en el estudio y su curiosidad natural lo han hecho sobresalir en su campo.
-                        </p>
-                        <div class="social-links">
-                            Además de su éxito en ciencias, Miguel es un estudiante que inspira a otros con su ética de trabajo y su amor por el aprendizaje. Planea seguir una carrera en Medicina, combinando su pasión por la ciencia con su deseo de ayudar a los demás.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="colp">
-                <div class="cardp">
-                    <a href="#" class="card-thumb">
-                        <img src="../images/maria2.jpg" class="imgp" alt="Imagen de María González">
-                        <div class="job-title">Top 3 - Literatura</div>
-                    </a>
-                    <div class="card-content">
-                        <h2>
-                            <a href="#">María González</a>
-                        </h2>
-                        <p>
-                            María alcanzó el tercer lugar en el certamen de Literatura, siendo reconocida por su creatividad y profundidad en la escritura. Sus ensayos y relatos han capturado la atención de profesores y estudiantes por igual.
-                        </p>
-                        <div class="social-links">
-                            María es una lectora ávida y escritora talentosa que aspira a estudiar Letras en la universidad. Su habilidad para expresar ideas de manera clara y conmovedora la ha convertido en una figura inspiradora dentro de su comunidad estudiantil.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>';
-} ?>
+                </div>';
+        }
+
+        echo '</div></section>';
+    } else {
+        echo '<section class="section section-divider white cta reveal" style="background-image: url(\'../images/fondoPodio2.jpg\')">
+            <h1 class="h1 hero-title reveal" style="color: gold;">Podio de los mejores estudiantes</h1>
+            <div class="containerp">
+                <h1 class="h1 hero-title reveal" style="color: white;">No hay datos disponibles para mostrar en el podio.</h1>
+            </div></section>';
+    }
+
+    // Close the connection
+    $conn->close();
+}
+?>
+
 
        
      <!-- Sección 1 -->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/librito2.jpg')">
-  <div class="container reveal">
+  <div class="container">
       <div class="cta-content">
-          <h2 class="h2 section-title">¡El Poder del Trabajo en Equipo!</h2>
-          <p class="section-text">
+          <h2 class="h2 section-title reveal">¡El Poder del Trabajo en Equipo!</h2>
+          <p class="section-text reveal">
               En nuestra red social educativa, creemos que el trabajo en equipo es la clave para el éxito académico y personal. Sabemos que aprender juntos no solo hace el proceso más enriquecedor, sino que también fortalece las habilidades sociales y colaborativas que son esenciales para el futuro.
               <br><br>
               Juntos somos más fuertes. En nuestra plataforma, cada estudiante tiene algo valioso que aportar. Al compartir tus conocimientos y aprender de los demás, todos crecemos y mejoramos. Aquí, el esfuerzo colectivo supera cualquier desafío individual.
@@ -152,10 +142,10 @@ include '../html/navBar.php';
 
 <!-- Sección 2-->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/libros.jpg');">
-  <div class="container reveal">
+  <div class="container">
       <div class="cta-content" style="float: right;">
-          <h2 class="h2 section-title">¡Exploración del Conocimiento!</h2>
-          <p class="section-text">
+          <h2 class="h2 section-title reveal">¡Exploración del Conocimiento!</h2>
+          <p class="section-text reveal">
               En nuestra red social educativa, te invitamos a embarcarte en un viaje de descubrimiento y aprendizaje sin límites. La exploración del conocimiento es el corazón de nuestra comunidad, donde cada pregunta es una puerta hacia nuevas ideas y perspectivas.
               <br><br>
               Sumérgete en el mundo del aprendizaje. En nuestra plataforma, te ofrecemos un vasto océano de recursos y herramientas, listos para ser explorados. Desde artículos fascinantes hasta cursos interactivos, cada rincón está lleno de oportunidades para expandir tu mente y enriquecer tu vida académica.
@@ -166,10 +156,10 @@ include '../html/navBar.php';
 
 <!-- Sección 3 -->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/educacion5.jpg ');">
-  <div class="container reveal">
+  <div class="container">
       <div class="cta-content" style="float: left;">
-          <h2 class="h2 section-title">¡Innovación Educativa!</h2>
-          <p class="section-text">
+          <h2 class="h2 section-title reveal">¡Innovación Educativa!</h2>
+          <p class="section-text reveal">
               En nuestra red social educativa, fomentamos la innovación como motor del aprendizaje. Creemos en la capacidad de cada estudiante para generar ideas creativas y soluciones ingeniosas a los retos académicos y personales.
               <br><br>
               Nuestro compromiso es proporcionar un entorno donde la imaginación pueda florecer. Ofrecemos herramientas y recursos para que cada estudiante pueda experimentar y descubrir nuevas formas de aprender, enseñar y crecer. Aquí, la innovación no tiene límites y cada idea cuenta.

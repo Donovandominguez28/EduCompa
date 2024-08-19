@@ -36,22 +36,22 @@ create table administrador (
 insert into administrador (idAdmin, nombre, email, contrasena)
 values (1, 'Donovan Domínguez', 'admin@gmail.com', 'admin123');
 
-create table biblioteca (
-    idBiblioteca int auto_increment primary key,
-    idLibro int,
-    libroimg longblob,
-    titulo varchar(100),
-    descripcion varchar(1000),
-    link varchar(100)
-);
+	create table biblioteca (
+		idBiblioteca int auto_increment primary key,
+		idLibro int,
+		libroimg longblob,
+		titulo varchar(100),
+		descripcion varchar(1000),
+		link varchar(100),
+		carnet6 int,
+		foreign key (carnet6) references estudiantes(carnet)
+	);
 create table podio(
 idPodio int auto_increment primary key,
 top int,
 foto longblob,
 nombreApellido varchar(100),
-descripcion varchar(1000),
-idPodio2 int,
-foreign key (idPodio2) references administrador(idAdmin)
+descripcion varchar(1000)
 );
 create table clases (
     idClase int auto_increment primary key,
@@ -59,7 +59,10 @@ create table clases (
     descripcion varchar(1000),
     materia varchar(100),
     nombreProfesor varchar(100),
-    titulo varchar(100)
+    titulo varchar(100),
+    carnet7 int,
+	foreign key (carnet7) references estudiantes(carnet)
+
 );
 create table contenidoclases (
     idContenido int auto_increment primary key,

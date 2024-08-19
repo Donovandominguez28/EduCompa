@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     verificarUsuario($conn, $email, $contrasena, "estudiantes", "carnet", "contrasena", "../html/index.php");
 
     // Verificar administradores
-    verificarUsuario($conn, $email, $contrasena, "administrador", "idAdmin", "contrasena", "../html/indexAdmin.html");
+    verificarUsuario($conn, $email, $contrasena, "administrador", "idAdmin", "contrasena", "../html/indexAdmin.php");
 
     // Verificar profesores
     verificarUsuario($conn, $email, $contrasena, "profesor", "idProfesor", "contrasena", "../html/indexProfesor.php");

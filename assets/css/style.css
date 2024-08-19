@@ -165,7 +165,7 @@ body.active { overflow: hidden; }
 
 ::-webkit-scrollbar-thumb { background-color: var(--deep-saffron); }
 
-::-webkit-scrollbar-thumb:hover { background-color: var(--tangerine); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--dark-orange); }
 
 .perfil-usuario {
   background: linear-gradient(#365b77, transparent);
@@ -518,30 +518,33 @@ body.active { overflow: hidden; }
 }
 
 .colp:nth-child(1) {
-  background-color: #b80037;
+  background-color: #ffd700; /* Oro */
 }
 .colp:nth-child(2) {
-  background-color: #006bb8;
+  background-color: #c0c0c0; /* Plata */
 }
 .colp:nth-child(3) {
-  background-color: #cc9600;
+  background-color: #cd7f32; /* Bronce */
 }
 
 .colp:nth-child(1) .cardp .card-thumb,
 .colp:nth-child(1) .cardp .card-thumb .job-title,
 .colp:nth-child(1) .cardp .card-content {
-  background-color: #ff0a54;
+  background-color: #b8860b; /* Oro oscuro */
 }
+
 .colp:nth-child(2) .cardp .card-thumb,
 .colp:nth-child(2) .cardp .card-thumb .job-title,
 .colp:nth-child(2) .cardp .card-content {
-  background-color: #0496ff;
+  background-color: #a9a9a9; /* Plata oscura */
 }
+
 .colp:nth-child(3) .cardp .card-thumb,
 .colp:nth-child(3) .cardp .card-thumb .job-title,
 .colp:nth-child(3) .cardp .card-content {
-  background-color: #ffbd00;
+  background-color: #8b4513; /* Bronce oscuro */
 }
+
 
 /* Media query para pantallas anchas */
 @media (min-width: 749px) {
