@@ -317,30 +317,6 @@ include '../php/datosPerfil.php';
   <br>
   <br>
   <br>
-  <footer class="footer-distributed reveal">
-    <div class="footer-left">
-      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
-      <p class="footer-links">
-            <a href="../html/index.html"><i class="bi bi-house">Inicio</i></a>
-            |
-            <a href="../html/perfilUsuario.html"><i class="bi bi-people">Perfil</i></a>
-            |
-            <a href="#"><i class="bi bi-backpack3">Aula Virtual</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-book">Biblioteca</i></a>
-            |
-            <a href="#"><i class="bi bi-chat-dots-fill">Chat</i></a>
-            |
-            <a href="../html/Juegos.html"><i class="bi bi-controller">Juegos</i></a>
-            |
-            <br>
-            <a href="#"><i class="bi bi-pen">Refuerzo Avanzo</i></a>
-        </p>
-
-        <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
-    </div>
-
     <?php include '../html/footer.php'; ?>
 
           

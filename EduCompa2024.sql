@@ -55,6 +55,7 @@ descripcion varchar(1000)
 );
 create table clases (
     idClase int auto_increment primary key,
+    fotoProfesor longblob,
     imagenClase longblob,
     descripcion varchar(1000),
     materia varchar(100),
@@ -66,7 +67,8 @@ create table clases (
 );
 create table contenidoclases (
     idContenido int auto_increment primary key,
-     contenido varchar(100),
+    titulo varchar(100),
+	contenido varchar(100),
     multimedia longblob,
     link varchar(100),
     idClase2 int,

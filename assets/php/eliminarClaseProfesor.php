@@ -1,5 +1,5 @@
 <?php
-include '../php/session_check3.php';
+include '../php/session_check4.php';
 include '../php/conexion.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Si todo fue exitoso, confirmar la transacción
         $conn->commit();
-        echo "<script>alert('Clase y su contenido eliminado correctamente.'); window.location.href='../html/clasesAdmin.php';</script>";
+        echo "<script>alert('Clase y su contenido eliminado correctamente.'); window.location.href='../html/clasesProfesor.php';</script>";
 
     } catch (Exception $e) {
         // En caso de error, deshacer la transacción

@@ -48,12 +48,12 @@ include '../php/datosPerfil.php';
         <video autoplay muted loop id="bg-video">
           <source src="../images/juegosFondo.mp4" type="video/mp4">
         </video>
-        <div class="container reveal">
+        <div class="container">
         
-          <div class="hero-content reveal">
-            <p class="hero-subtitle" style="color: white;" >¡Explora y Juega!</p>
-            <h2 class="h1 hero-title">¡Juegos EduCompa!</h2>
-            <p class="hero-text">
+          <div class="hero-content">
+            <p class="hero-subtitle reveal" style="color: white;" >¡Explora y Juega!</p>
+            <h2 class="h1 hero-title reveal">¡Juegos EduCompa!</h2>
+            <p class="hero-text reveal">
               Sumérgete en un mundo de diversión educativa con nuestros 
               juegos clásicos. ¡Desafía tus habilidades y aprende jugando!
             </p>

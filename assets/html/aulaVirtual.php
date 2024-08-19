@@ -59,58 +59,140 @@ include '../php/datosPerfil.php';
         </div>
       </section>
 
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centrar las tarjetas */
+}
+
+.card__containeraula {
+    flex: 1 1 calc(33.333% - 1rem); /* 3 tarjetas por fila con espacio entre ellas */
+    box-sizing: border-box;
+    margin-bottom: 1rem; /* Espacio debajo de las tarjetas */
+}
+
+.card__articleaula {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.card__buttonaula {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+/* Estilo para el contenedor de tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centrar las tarjetas */
+}
+
+/* Estilo para las tarjetas individuales */
+.card__containeraula {
+  flex: 1 1 calc(33.333% - 1rem); /* 3 tarjetas por fila con espacio entre ellas */
+  box-sizing: border-box;
+  margin-bottom: 1rem; /* Espacio debajo de las tarjetas */
+}
+
+/* Estilo para el artículo de la tarjeta */
+.card__articleaula {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para mejor legibilidad */
+  color: white; /* Color del texto */
+}
+
+/* Estilo para el botón de la tarjeta */
+.card__buttonaula {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #007bff; /* Color del botón */
+}
+
+
+</style>
       <!-- 
         - #CTA
          -->
 
-     <!-- Sección 1 -->
-<section class="section section-divider white cta reveal" style="background-image: url('../images/clases3.jpg')">
-    <div class="containeraula">
-      <?php
-include '../php/conexion.php';
+         <section class="section section-divider white cta reveal" style="background-image: url('../images/clases3.jpg')">
+  <div class="containeraula">
+    <?php
+    include '../php/conexion.php';
 
-// Fetch classes from the database
-$sql = "SELECT c.*
-        FROM clases c
-        LEFT JOIN estudiantes e ON c.carnet7 = e.carnet";
-$result = $conn->query($sql);
+    // Consulta para obtener todas las clases
+    $sql = "SELECT * FROM clases where carnet7 = ?";
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-  echo'<h1 class="h1 hero-title reveal" style="color: white;">Clases disponibles:</h1>';
-    while ($row = $result->fetch_assoc()) {
-        $idClase = $row['idClase'];
-        $imagenClase = $row['imagenClase'];
-        $materia = $row['materia'];
-        $nombreProfesor = $row['nombreProfesor'];
+    if ($result) {
+        echo '<h1 class="h1 hero-title reveal" style="color: white;">Clases disponibles:</h1>';
+        echo '<div class="card-container">'; // Contenedor para las tarjetas
+        while ($row = $result->fetch_assoc()) {
+            $idClase = $row['idClase'];
+            $imagenClase = $row['imagenClase'];
+            $materia = $row['materia'];
+            $nombreProfesor = $row['nombreProfesor'];
+            //$fotoProfesor = $row['fotoProfesor'];
 
-        // Convert the BLOB image data to base64 for embedding in HTML
-        $imagenClaseBase64 = base64_encode($imagenClase);
-        $imagenClaseSrc = "data:image/jpeg;base64," . $imagenClaseBase64;
+            // Convertir la imagen de la clase a base64 para embebido en HTML
+            $imagenClaseBase64 = base64_encode($imagenClase);
+            $imagenClaseSrc = "data:image/jpeg;base64," . $imagenClaseBase64;
 
-        echo '<div class="card__containeraula reveal">';
-        echo '   <article class="card__articleaula">';
-        echo '      <img src="../images/userrr.png" alt="profile picture" class="card__imgaula" style="border-radius:50%;">';
-        echo '      <div class="card__dataaula">';
-        echo '         <h3 class="card__titleaula" style="color: white; font-size: 15px;">' . htmlspecialchars($materia) . '</h3>';
-        echo '         <span class="card__priceaula" style="color: white; font-size: 15px;">Prof. ' . htmlspecialchars($nombreProfesor) . '</span>';
-        echo '      </div>';
-        echo '      <img src="' . $imagenClaseSrc . '" alt="class background" class="card__bgaula">';
-        echo '<a href="../html/verClases.php?idClase=' . $idClase . '" class="card__buttonaula" style="color: black; font-size: 12px;">';
-echo '   Revisar Clase <i class="bi bi-arrow-right"></i>';
-echo '</a>';
+            // Verificar si el profesor tiene una foto de perfil; si no, usar la predeterminada
+            /*if ($fotoProfesor) {
+                $fotoProfesorBase64 = base64_encode($fotoProfesor);
+                $fotoProfesorSrc = "data:image/jpeg;base64," . $fotoProfesorBase64;
+            } else {
+                $fotoProfesorSrc = "../images/gokuuu.png"; // Imagen predeterminada
+            }*/
 
-        echo '   </article>';
-        echo '</div>';
+            echo '<div class="card__containeraula">';
+            echo '   <article class="card__articleaula">';
+            echo '<br>';
+            echo '      <img src="../images/cohete2.png" alt="profile picture" class="card__imgaula" ">';
+            echo '      <div class="card__dataaula">';
+            echo '         <h3 class="card__titleaula" style="font-size: 15px;">' . htmlspecialchars($materia) . '</h3>';
+            echo '         <span class="card__priceaula" style="font-size: 15px;">Prof. ' . htmlspecialchars($nombreProfesor) . '</span>';
+            echo '      </div>';
+            echo '      <img src="' . $imagenClaseSrc . '" alt="class background" class="card__bgaula">';
+            echo '<a href="../html/verClases.php?idClase=' . $idClase . '" class="card__buttonaula" style="font-size: 12px;">';
+            echo '   Revisar Clase <i class="bi bi-arrow-right"></i>';
+            echo '</a>';
+            echo '   </article>';
+            echo '</div>';
+        }
+        echo '</div>'; // Cerrar contenedor de tarjetas
+    } else {
+        echo '<h1 class="h1 hero-title reveal" style="color: white;">No se encontraron clases disponibles.</h1>';
     }
-} else {
-    echo '<h1 class="h1 hero-title reveal" style="color: white;">No se encontraron clases disponibles.</h1>';
-}
 
-$conn->close();
-?>
-
-     </div>
+    // Cerrar la conexión
+    $conn->close();
+    ?>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
 </section>
+
 
 
       

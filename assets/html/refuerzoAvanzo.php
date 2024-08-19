@@ -50,11 +50,11 @@ include '../php/datosPerfil.php';
         <video autoplay muted loop id="bg-video">
           <source src="../images/refuerzo.mp4" type="video/mp4">
         </video>
-        <div class="container reveal">
-          <div class="hero-content reveal">
-            <p class="hero-subtitle" style="color: white;" >¡Refuerza tus conocimientos!</p>
-            <h2 class="h1 hero-title">¡Refuerzo prueba Avanzo!</h2>
-            <p class="hero-text">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-subtitle reveal" style="color: white;" >¡Refuerza tus conocimientos!</p>
+            <h2 class="h1 hero-title reveal">¡Refuerzo prueba Avanzo!</h2>
+            <p class="hero-text reveal">
               ¡Prepárate para la 
               prueba Avanzo con nuestro 
               módulo de refuerzo! Diseñado 
