@@ -59,10 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bind parameters
     $stmt->bind_param("issssi", $idLibro, $titulo, $descripcion, $libroimgContent, $link, $carnet6);
 
-    // Send image data in chunks if image is provided
-    if ($libroimgContent !== null) {
-        $stmt->send_long_data(3, $libroimgContent); // 3 is the position of the blob parameter in the SQL statement
-    }
 
     // Execute the query
     if ($stmt->execute()) {

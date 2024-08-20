@@ -38,7 +38,7 @@ include '../html/navBar.php';
       <!-- 
         - #HERO
       -->
-
+<div class=".body" ></div>
       <section class="hero reveal" id="home">
         <video autoplay muted loop id="bg-video">
           <source src="../images/videoFondo3.mp4" type="video/mp4">
@@ -124,8 +124,10 @@ include '../php/conexion.php';
 }
 ?>
 
+<?php
+include '../html/translate.php';
+?>
 
-       
      <!-- Sección 1 -->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/librito2.jpg')">
   <div class="container">
@@ -172,7 +174,18 @@ include '../php/conexion.php';
 
     </article>
   </main>
+  <select id="theme-select">
+    <option value="light">Modo Claro</option>
+    <option value="dark">Modo Oscuro</option>
+  </select>
+  <script>
+    const themeSelect = document.querySelector("#theme-select");
 
+    themeSelect.addEventListener("change", (event) => {
+      const theme = event.target.value;
+      document.body.classList.toggle("dark-theme", theme === "dark");
+    });
+  </script>
   <!-- 
     - #BACK TO TOP
   -->

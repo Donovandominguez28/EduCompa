@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Vincular parámetros
-        $stmt->bind_param("ssssbbi", $titulo, $materia, $descripcion, $nombreProfesor, $carnet7, $imagenClaseContent, $fotoProfesorContent, $idClase);
+        $stmt->bind_param("ssssissi", $titulo, $materia, $descripcion, $nombreProfesor, $carnet7, $imagenClaseContent, $fotoProfesorContent, $idClase);
 
         // Enviar los datos largos de la imagen y la foto del profesor si están presentes
         if ($imagenClaseContent !== null) {

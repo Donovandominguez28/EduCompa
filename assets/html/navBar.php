@@ -96,3 +96,6 @@ if (isset($_SESSION['carnet'])) {
         </div>
     </div>
 </header>
+<?php
+include '../html/translate.php';
+?>

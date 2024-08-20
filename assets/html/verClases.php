@@ -68,13 +68,14 @@ $conn->close();
         <div class="container">
           <div class="hero-content">
             <p class="hero-subtitle reveal" style="color: white;">Prof. <?php echo htmlspecialchars($nombreProfesor); ?></p>
+            <p class="h1 hero-title reveal  "><?php echo htmlspecialchars($tituloClase); ?></p>
+          <br>
             <h2 class="h1 hero-title reveal"><?php echo htmlspecialchars($materia); ?></h2>
             <p class="hero-text reveal"><?php echo htmlspecialchars($descripcion); ?></p>
           </div>
         </div>
       </section>
       
-      <p class="h1 hero-title reveal" style="color:#365b77;"><?php echo htmlspecialchars($tituloClase); ?></p>
 
 
       <section class="section section-divider white cta reveal" style="background-image: url('../images/fondodark.jpg')">
@@ -98,7 +99,7 @@ $conn->close();
               </div>
             <?php } ?>
           <?php } else { ?>
-            <p class="hero-text reveal">No hay contenido disponible para esta clase.</p>
+            <h1 class="hero-text reveal">No hay contenido disponible para esta clase.</p>
           <?php } ?>
             </div>
         </div>

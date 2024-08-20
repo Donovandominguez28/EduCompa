@@ -8,6 +8,7 @@ $bannerImg = !empty($banner) ? 'data:'  . ';base64,' . base64_encode($banner) : 
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,9 @@ $bannerImg = !empty($banner) ? 'data:'  . ';base64,' . base64_encode($banner) : 
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <?php include '../html/navBar.php'; ?>
+
 <body id="#top">
+
 
     <section class="perfil-usuario">
         <div class="contenedor-perfil">
@@ -85,7 +88,6 @@ if (mysqli_num_rows($result) > 0) {
         </div>
     </div>
 </section>
-
 <style>
     .card__container {
     position: relative;

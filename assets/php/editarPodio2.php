@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepare and execute the update query
     $stmt = $conn->prepare("UPDATE podio SET top = ?, foto = ?, nombreApellido = (SELECT nombreCompleto FROM estudiantes WHERE carnet = ?), descripcion = ? WHERE idPodio = ?");
-    $stmt->bind_param("ibssi", $top, $foto, $estudiante, $descripcion, $idPodio);
+    $stmt->bind_param("isssi", $top, $foto, $estudiante, $descripcion, $idPodio);
     
     if ($stmt->execute()) {
         echo "<script>alert('Podio actualizado exitosamente.'); window.location.href='../html/podioProfesor.php';</script>";

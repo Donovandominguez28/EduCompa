@@ -132,7 +132,7 @@ $conn->close();
             </div>
         </div>
         <button type="submit" name="submit">Guardar Cambios</button>
-        <a href="../html/mural.php">Cancelar</a>
+        <a href="../html/perfilUsuario.php">Cancelar</a>
     </form>
 </main>
 </body>

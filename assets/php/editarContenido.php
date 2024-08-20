@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare($sql);
     
     if (!empty($_FILES['multimedia']['tmp_name'])) {
-        $stmt->bind_param("sssibi", $titulo, $contenido, $link, $idClase2, $multimedia, $idContenido);
+        $stmt->bind_param("sssisi", $titulo, $contenido, $link, $idClase2, $multimedia, $idContenido);
     } else {
         $stmt->bind_param("sssii", $titulo, $contenido, $link, $idClase2, $idContenido);
     }

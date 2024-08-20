@@ -27,8 +27,7 @@ if (isset($_POST['idProfesor'])) {
 
     // Preparar y ejecutar la actualización
     $stmt = $conn->prepare("UPDATE profesor SET nombreCompleto = ?, fotoPerfil = ?, email = ?, materiaInpartida = ?, contrasena = ? WHERE idProfesor = ?");
-    $stmt->bind_param("sbsssi", $nombreCompleto, $fotoPerfil, $email, $materiaInpartida, $contrasena, $idProfesor);
-
+    $stmt->bind_param("sssssi", $nombreCompleto, $fotoPerfil, $email, $materiaInpartida, $contrasena, $idProfesor);
     if ($stmt->execute()) {
         echo "<script>alert('Profesor actualizado exitosamente.'); window.location.href = '../html/profesoresAdmin.php';</script>";
     } else {

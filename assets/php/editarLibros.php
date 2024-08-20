@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Asignar los parámetros de la consulta
     $types = "ssssi";
     if (!empty($updateImgQuery)) {
-        $types .= "b"; // Agregar tipo 'b' para el campo blob si se actualiza la imagen
+        $types .= "s"; // Agregar tipo 'b' para el campo blob si se actualiza la imagen
     }
 
     $params = array_merge([$titulo, $descripcion, $link, $carnet6], $params, [$idLibro]);

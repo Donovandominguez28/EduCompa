@@ -1,6 +1,8 @@
 <?php
 include '../php/session_check2.php';
 include '../php/datosPerfil.php';
+$carnet7 = $_SESSION['carnet']; // Supongo que tienes guardado el carnet en la sesión
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +42,7 @@ include '../php/datosPerfil.php';
         <video autoplay muted loop id="bg-video">
           <source src="../images/aulaVirtual.mp4" type="video/mp4">
         </video>
-        <div class="container">
+        <div class="container reveal">
           <div class="hero-content">
             <p class="hero-subtitle reveal" style="color: white;" >¡Gestiona tus clases!</p>
             <h2 class="h1 hero-title reveal">¡Aula Virtual!</h2>
@@ -133,11 +135,12 @@ include '../php/datosPerfil.php';
     <?php
     include '../php/conexion.php';
 
-    // Consulta para obtener todas las clases
-    $sql = "SELECT * FROM clases where carnet7 = ?";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT * FROM clases WHERE carnet7 = ?");
+$stmt->bind_param("i", $carnet7); // "i" indica que es un entero
 
-    if ($result) {
+if ($stmt->execute()) {
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
         echo '<h1 class="h1 hero-title reveal" style="color: white;">Clases disponibles:</h1>';
         echo '<div class="card-container">'; // Contenedor para las tarjetas
         while ($row = $result->fetch_assoc()) {
@@ -145,24 +148,15 @@ include '../php/datosPerfil.php';
             $imagenClase = $row['imagenClase'];
             $materia = $row['materia'];
             $nombreProfesor = $row['nombreProfesor'];
-            //$fotoProfesor = $row['fotoProfesor'];
 
             // Convertir la imagen de la clase a base64 para embebido en HTML
             $imagenClaseBase64 = base64_encode($imagenClase);
             $imagenClaseSrc = "data:image/jpeg;base64," . $imagenClaseBase64;
 
-            // Verificar si el profesor tiene una foto de perfil; si no, usar la predeterminada
-            /*if ($fotoProfesor) {
-                $fotoProfesorBase64 = base64_encode($fotoProfesor);
-                $fotoProfesorSrc = "data:image/jpeg;base64," . $fotoProfesorBase64;
-            } else {
-                $fotoProfesorSrc = "../images/gokuuu.png"; // Imagen predeterminada
-            }*/
-
             echo '<div class="card__containeraula">';
             echo '   <article class="card__articleaula">';
             echo '<br>';
-            echo '      <img src="../images/cohete2.png" alt="profile picture" class="card__imgaula" ">';
+            echo '      <img src="../images/cohete2.png" alt="profile picture" class="card__imgaula">';
             echo '      <div class="card__dataaula">';
             echo '         <h3 class="card__titleaula" style="font-size: 15px;">' . htmlspecialchars($materia) . '</h3>';
             echo '         <span class="card__priceaula" style="font-size: 15px;">Prof. ' . htmlspecialchars($nombreProfesor) . '</span>';
@@ -178,11 +172,16 @@ include '../php/datosPerfil.php';
     } else {
         echo '<h1 class="h1 hero-title reveal" style="color: white;">No se encontraron clases disponibles.</h1>';
     }
+} else {
+    echo "Error al ejecutar la consulta: " . $stmt->error;
+}
+echo'</div>';
 
-    // Cerrar la conexión
-    $conn->close();
-    ?>
-  </div>
+// Cerrar la conexión
+$stmt->close();
+$conn->close();
+?>
+
   <br>
   <br>
   <br>

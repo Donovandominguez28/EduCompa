@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($fotoPerfilContent !== null) {
         $sqlUpdate .= "fotoPerfil=?, ";
         $params[] = $fotoPerfilContent;
-        $types .= 'b';
+        $types .= 's';  
     }
 
     // Eliminar la última coma y espacio

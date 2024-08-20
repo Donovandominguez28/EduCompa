@@ -1,6 +1,7 @@
 <?php
 include "../php/session_check3.php";
 include '../php/conexion.php';
+
 ?>
 <!doctype html>
 <html lang="en">

@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        $stmt->bind_param("ssssibi", $titulo, $materia, $descripcion, $nombreProfesor, $carnet7, $imagenClase, $idClase);
+        $stmt->bind_param("ssssisi", $titulo, $materia, $descripcion, $nombreProfesor, $carnet7, $imagenClase, $idClase);
 
         // Ejecutar la consulta
         if ($stmt->execute()) {
