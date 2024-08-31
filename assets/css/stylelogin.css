@@ -1,0 +1,180 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url(../images/fondologin.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+}
+
+.container-form {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    transition: all .5s ease-out;
+}
+
+label {
+    color: #696969;
+}
+
+.welcome-back {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.message {
+    padding: 1rem;
+}
+
+.message h2 {
+    font-size: 1.7rem;
+    padding: 1rem 0;
+}
+
+.message button {
+    padding: 1rem;
+    font-weight: 400;
+    background-color: #365b77;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: #fff;
+}
+
+.message button:hover {
+    background-color: rgb(63, 63, 255);
+}
+
+.formulario {
+    width: 400px;
+    padding: 1rem;
+    margin: 2rem;
+    background-color: rgba(0, 0, 0, 0.677);
+    text-align: center;
+    border-radius: 20px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.create-account {
+    padding: 2.7rem 0;
+    font-size: 1.7rem;
+}
+
+.cuenta-gratis {
+    padding: 2rem 0;
+}
+
+.formulario input, .formulario select {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: white;
+}
+.formulario option {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: black; /* Fondo negro para el select */
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: white; /* Texto en color blanco */
+    -webkit-appearance: none; /* Elimina la apariencia predeterminada del navegador */
+    -moz-appearance: none; /* Elimina la apariencia predeterminada en Firefox */
+    appearance: none; /* Elimina la apariencia predeterminada en navegadores modernos */
+}
+
+.formulario input[type="submit"] {
+    width: 60%;
+    margin: auto;
+    border: solid thin white;
+    padding: .7rem;
+    border-radius: 2rem;
+    background-color: white;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-size: .8rem;
+    cursor: pointer;
+    color: #222;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: rgb(211, 231, 255);
+}
+
+.sign-in {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sign-in.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sign-up.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.logologin {
+    width: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .container-form {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .formulario {
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .message {
+        padding: 0.5rem;
+    }
+
+    .message h2 {
+        font-size: 1.2rem;
+    }
+
+    .message button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .formulario input, .formulario select {
+        width: 80%;
+    }
+
+    .formulario input[type="submit"] {
+        width: 80%;
+    }
+}

@@ -1,0 +1,59 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+  --default-bg-color: #e0e0e0; /* Lighter grey background */
+  --default-text-color: #333333; /* Dark grey text for better contrast */
+}
+
+:root[data-bs-theme='light'] {
+  --bg-color: #ffffff; /* White */
+  --text-color: #000000; /* Black */
+  --navbar-bg: #f8f9fa; /* Light mode navbar background */
+}
+
+:root[data-bs-theme='dark'] {
+  --bg-color: #000000; /* Black */
+  --text-color: #ffffff; /* White */
+  --navbar-bg: #343a40; /* Dark mode navbar background */
+}
+
+body {
+  background-color: var(--bg-color, var(--default-bg-color)); /* Use default color if not set */
+  color: var(--text-color, var(--default-text-color)); /* Use default text color if not set */
+}
+
+.btnFloat {
+  background-color: var(--text-color, var(--default-text-color)); 
+  color: var(--bg-color, var(--default-bg-color));
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+}
+.navbar a {
+  color: var(--text-color, var(--default-text-color));
+}
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  position: absolute;
+  top: 45px;
+  margin-top: -1px;
+}
+
+.dropdown-submenu:hover .dropdown-menu,
+.dropdown-submenu .show {
+  display: block; /* Show submenu on hover */
+}
+
+.dropdown-item:hover {
+  background-color: var(--text-color, var(--default-text-color)); 
+  color: var(--bg-color, var(--default-bg-color)); /* Ensure readable text color on hover */
+}
+
+/* Ensure icons are visible in all modes */
+.navbar .nav-link i {
+  color: var(--text-color, var(--default-text-color));
+}

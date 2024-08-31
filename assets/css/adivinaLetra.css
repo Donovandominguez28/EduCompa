@@ -1,0 +1,146 @@
+body {
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px; /* Ajusta según el tamaño de la barra de navegación */
+    margin: 0;
+  }
+  
+  section {
+    width: 500px;
+    background-color: #fff;
+    border: 7px solid #ae91c5;
+    color: #000;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 30%;
+  }
+  
+  h2 {
+    border-bottom: 1px solid #9b58d1;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  
+  #palabra {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  
+  .letra {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #9b58d1;
+    text-align: center;
+    margin: 4px;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  
+  .pintar {
+    background-color: #02bfa4;
+  }
+  
+  .pintarError {
+    background-color: red;
+  }
+  
+  h3 {
+    margin: 4px 0;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  
+  h3 span {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .buttonnn {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    background-color: #02bfa4;
+    border: 2px solid #02bfa4;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  .buttonnn:hover {
+    background-color: #02bfa4;
+  }
+
+  .letra {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    line-height: 30px;
+}
+.pintar {
+    background-color: green;
+    color: white;
+}
+.pintarError {
+    background-color: red;
+    color: white;
+}
+#letras {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+.letra-boton {
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    section {
+      width: 90%;
+      padding: 15px;
+      margin-left: 5%;
+
+    }
+  
+    .letra {
+      height: 40px;
+      width: 40px;
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    h3 {
+      font-size: 14px;
+    }
+  
+    h3 span {
+      font-size: 18px;
+    }
+  
+    .buttonnn {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  
