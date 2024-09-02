@@ -149,9 +149,7 @@ include '../php/datosPerfil.php';
   <script src="../js/script.js" defer></script>
   
   <?php include '../html/footer.php'; ?>
-  <?php 
-include '../html/changesMode.php';
-?>
+ 
           
   <!-- 
     - ionicon link

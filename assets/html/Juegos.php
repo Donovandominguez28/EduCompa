@@ -121,9 +121,7 @@ include '../php/datosPerfil.php';
   
   <?php include '../html/footer.php'; ?>
 
-  <?php 
-include '../html/changesMode.php';
-?>
+
 </body>
 
 </html>

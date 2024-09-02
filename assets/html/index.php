@@ -122,9 +122,7 @@ include '../php/conexion.php';
 }
 ?>
 
-<?php
-include '../html/translate.php';
-?>
+
 
      <!-- Sección 1 -->
 <section class="section section-divider white cta reveal" style="background-image: url('../images/librito2.jpg')">
@@ -184,9 +182,7 @@ include '../html/translate.php';
   <script src="../js/script.js" defer></script>
   
 <?php include '../html/footer.php'; ?>
-<?php 
-include '../html/changesMode.php';
-?>
+
           
   <!-- 
     - ionicon link

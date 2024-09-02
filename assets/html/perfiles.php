@@ -143,9 +143,7 @@ if (!$profilesResult) {
     }
     </style>
     <?php include '../html/footer.php'; ?>
-    <?php 
-    include '../html/changesMode.php';
-    ?>
+    
     
     <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
         <i class="bi bi-arrow-up-short"></i>

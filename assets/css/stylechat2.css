@@ -89,6 +89,7 @@ body{
 }
 .users .search .text{
   font-size: 18px;
+  color: black;
 }
 .users .search input{
   position: absolute;
@@ -180,6 +181,7 @@ body{
 .chat-area header .details span{
   font-size: 17px;
   font-weight: 500;
+  color: black;
 }
 .chat-box{
   position: relative;
@@ -198,6 +200,7 @@ body{
   width: calc(100% - 50px);
   text-align: center;
   transform: translate(-50%, -50%);
+  color: black;
 }
 .chat-box .chat{
   margin: 15px 0;

@@ -87,7 +87,6 @@ include '../php/datosPerfil.php';
   <br>
   <br>
   <?php include '../html/footer.php'; ?>
-  <?php include '../html/changesMode.php'; ?>
           
   <!-- 
     - ionicon link

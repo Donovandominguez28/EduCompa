@@ -28,14 +28,7 @@ if (isset($_SESSION['carnet'])) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">    
-<style>
-    * {
-        font-family: 'Roboto', sans-serif;
-    }
-    body {
-        background-color: white;
-    }
-</style>
+
     
 <header class="header" data-header>
     <div class="container">
@@ -81,7 +74,7 @@ if (isset($_SESSION['carnet'])) {
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a href="../html/login.html" class="navbar-link" data-nav-link><i class="bi bi-person"></i> Inicia sesión/Regístrate</a>
+                        <a href="../html/login.php" class="navbar-link" data-nav-link><i class="bi bi-person"></i> Inicia sesión/Regístrate</a>
                     </li>
                 <?php endif; ?>
             </ul>
@@ -96,6 +89,7 @@ if (isset($_SESSION['carnet'])) {
         </div>
     </div>
 </header>
-<?php
-include '../html/translate.php';
+
+<?php 
+    include '../html/btnCmT.php';
 ?>

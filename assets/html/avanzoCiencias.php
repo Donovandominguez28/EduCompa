@@ -86,8 +86,6 @@ include '../php/datosPerfil.php';
   <!-- Dentro de este archivo JavaScript he codificado todos los códigos de prueba -->
   <script src="../js/avanzo.js"></script>
   <script src="../js/script.js" defer></script>
-  <?php 
-include '../html/changesMode.php';
-?>
+ 
 </body>
 </html> 

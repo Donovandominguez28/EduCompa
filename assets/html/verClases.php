@@ -111,8 +111,6 @@ $conn->close();
   <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn><i class="bi bi-arrow-up-short"></i></a>
   <script src="../js/script.js" defer></script>
   <?php include '../html/footer.php'; ?>
-  <?php 
-include '../html/changesMode.php';
-?>
+
 </body>
 </html>

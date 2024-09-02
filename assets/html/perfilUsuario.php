@@ -71,9 +71,9 @@ if (mysqli_num_rows($result) > 0) {
             echo '<img src="data:image/jpeg;base64,' . base64_encode($row['imagenMural']) . '" alt="image" class="card__img">';
             echo '</div>';
         }
-        echo '<div class="card__data" style="font-size:15px;">';
+        echo '<div class="card__data" style="font-size:15px; color:black;">';
         echo '<h2 class="card__title">' . htmlspecialchars($row['titulo']) . '</h2>';
-        echo '<p>' . htmlspecialchars($row['informacion']) . '</p>';
+        echo '<p style="color:black;">' . htmlspecialchars($row['informacion']) . '</p>';
         echo '</div>';
         echo '<div class="card__actions">';
         echo '<a href="../html/editarMural.php?idMural=' . $row['idMural'] . '" class="card__btn card__btn--edit"><i class="bi bi-pencil-square"></i> Editar</a>';
@@ -148,9 +148,7 @@ echo'</section>';
     <br><br>
     <?php include '../html/footer.php'; 
     ?>
-<?php 
-include '../html/changesMode.php';
-?>
+
     <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn><i class="bi bi-arrow-up-short"></i></a>
     <script src="../js/script.js" defer></script>
     <script>

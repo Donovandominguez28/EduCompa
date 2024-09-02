@@ -2,7 +2,7 @@ const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
-const sendChatBtn = document.querySelector(".chat-input span");
+const sendChatBtn = document.querySelector(".chat-input i"); // Cambiar selector a "i"
 
 let userMessage = null; // Variable para almacenar el mensaje del usuario
 const inputInitHeight = chatInput.scrollHeight;
@@ -15,10 +15,15 @@ const createChatLi = (message, className) => {
   // Crear un elemento <li> para el chat con el mensaje y clase dados
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", `${className}`);
-  let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+  
+  // Usar íconos de Bootstrap en lugar de los de Google Fonts
+  let chatContent = className === "outgoing" 
+    ? `<p></p>` 
+    : `<i class="bi bi-robot"></i><p></p>`;
+  
   chatLi.innerHTML = chatContent;
   chatLi.querySelector("p").textContent = message;
-  return chatLi; // retornar el elemento <li> del chat
+  return chatLi; // Retornar el elemento <li> del chat
 }
 
 const generateResponse = async (chatElement) => {

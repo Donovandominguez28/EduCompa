@@ -6,13 +6,15 @@
 
 .bodyy {
     background-color: black;
-}
+    }
 
 ::selection {
     color: #fff;
     background: #007bff;
 }
-
+span{
+    color: black;
+}
 .start_btn,
 .info_box,
 .quiz_box,
@@ -75,6 +77,7 @@
 .info_box .info-list .info {
     margin: 5px 0;
     font-size: 17px;
+    color: black;
 }
 
 .info_box .info-list .info span {
@@ -130,6 +133,7 @@
 .quiz_box header .title {
     font-size: 20px;
     font-weight: 600;
+    color: black;
 }
 
 .quiz_box header .timer {
@@ -328,6 +332,7 @@ footer button.show {
 .result_box .complete_text {
     font-size: 20px;
     font-weight: 500;
+    color: black;
 }
 
 .result_box .score_text span {

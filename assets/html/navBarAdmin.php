@@ -21,7 +21,7 @@ if (isset($_SESSION['idAdmin'])) {
     $stmt->close();
 } else {
     // Redirigir si no ha iniciado sesión
-    header("Location: ../html/login.html");
+    header("Location: ../html/login.php");
     exit();
 }
 ?>

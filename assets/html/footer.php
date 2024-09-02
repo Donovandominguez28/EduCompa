@@ -1,6 +1,12 @@
+
 <footer class="footer-distributed">
-    <div class="footer-left">
-      <img src="../images/educompalogo.jpg" alt="" class="footer-logo">
+<div class="footer-left">
+<img src="../images/educompalogo.jpg" alt="" class="footer-logo">
+    <?php
+    if (isLoggedIn()) {
+        echo'
+        
+        
       <p class="footer-links">
             <a href="../html/index.php"><i class="bi bi-house">Inicio</i></a>
             |
@@ -20,7 +26,13 @@
         </p>
 
         <p class="footer-company-name">Copyright © 2024 <strong>EduCompa</strong> All rights reserved</p>
-    </div>
+        
+        ';
+    }
+    
+    ?>
+        </div>
+
 
     <div class="footer-center">
         <div>

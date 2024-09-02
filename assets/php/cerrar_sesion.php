@@ -5,7 +5,7 @@ session_destroy();
 ?>
 <script>
     alert("Se ha cerrado la sesión correctamente");
-    window.location = "../html/login.html";
+    window.location = "../html/login.php";
 </script>
 <?php
 exit();

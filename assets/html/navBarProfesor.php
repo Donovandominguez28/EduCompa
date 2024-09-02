@@ -23,7 +23,7 @@ if (isset($_SESSION['idProfesor'])) {
     $stmt->close();
 } else {
     // Redirigir si no ha iniciado sesión
-    header("Location: ../html/login.html");
+    header("Location: ../html/login.php");
     exit();
 }
 ?>

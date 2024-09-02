@@ -25,7 +25,7 @@
           --background-color: var(--white);
           --text-color: var(--gray-x-11-gray);
           --navbar-bg: var(--white);
-          --hover-color: var(--deep-saffron);
+          --hover-color: var(--black);
           --logo-color: var(--gray-x-11-gray);
         }
         
@@ -33,7 +33,7 @@
           --background-color: var(--rich-black-fogra-29);
           --text-color: var(--champagne-pink);
           --navbar-bg: var(--black);
-          --hover-color: var(--dark-orange);
+          --hover-color: var(--gray-x-11-gray);
           --logo-color: var(--champagne-pink);
         }
 
@@ -48,16 +48,21 @@
         /* Estilos generales */
         body {
           background-color: var(--background-color);
-          color: black;
+          color: var(--text-color);
           transition: background-color 0.3s ease, color 0.3s ease;
           font-family: Arial, sans-serif;
         }
         
-        .theme-switcher {
+        .theme-container {
           position: fixed;
-          top: 90px;
-          right: 1px;
+          top: 100px;
+          right: 20px;
           z-index: 1000;
+          text-align: center;
+        }
+
+        .theme-switcher {
+          margin-top: 10px;
         }
 
         .theme-switcher select {
@@ -68,12 +73,16 @@
           background-color: var(--background-color);
           color: var(--text-color);
           transition: background-color 0.3s ease, color 0.3s ease;
-          display: flex;
-          align-items: center;
         }
 
         .theme-switcher i {
           margin-right: 8px;
+        }
+
+        .theme-label {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 10px;
         }
 
         .header {
@@ -85,36 +94,107 @@
         .header.active {
           background-color: var(--navbar-bg);
           color: var(--text-color);
-          
         }
 
         .logo {
           color: var(--logo-color);
         }
 
-       .logo:hover{
-        color: var(--hover-color);
-        transition: background-color 0.3s ease, color 0.3s ease;
+        .logo:hover {
+          color: var(--hover-color);
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-       }
         .navbar-link {
           color: var(--text-color);
           transition: color 0.3s ease;
         }
 
-        .navbar-link:hover, .navbar-link:focus i{
+        .navbar-link:hover,
+        .navbar-link:focus i {
           color: var(--hover-color);
         }
-    </style>
 
+        .navbar.active {
+          background-color: var(--navbar-bg);
+          color: var(--text-color);
+        }
+
+        .navbar.active:hover {
+          color: var(--hover-color);
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .line {
+          background-color: var(--text-color);
+        }
+        .floating-button{
+          background-color: var(--navbar-bg);
+          color: var(--text-color);
+        }
+        
+        .chatbot-toggler{
+          background: var(--navbar-bg);
+        }
+        .chatbot-toggler{
+          color: var(--text-color);
+        }
+        .goog-te-gadget-simple{
+          background-color: var(--navbar-bg);
+          color: var(--text-color);
+    }
+    .VIpgJd-ZVi9od-xl07Ob-lTBxed{
+      background-color: var(--background-color);
+    }
+    .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed span{
+      color: var(--text-color);
+    }
+    .VIpgJd-ZVi9od-vH1Gmf{
+      background-color: var(--navbar-bg);
+      color: var(--text-color);
+    }
+
+    .chatbot header{
+      background-color: var(--hover-color);
+      color: var(--navbar-bg);
+    }
+    .chatbox .incoming i{
+      background-color: var(--hover-color);
+      color: var(--navbar-bg);
+    }
+    .chatbox .chat p{
+      background-color: var(--hover-color);
+      color: var(--navbar-bg);
+    }
+    .chatbot{
+      background-color: var(--navbar-bg);
+    }
+    .chatbot .chat-input{
+      background-color: var(--hover-color);
+      color: var(--navbar-bg);
+    }
+    .chat-input textarea{
+      color: var(--navbar-bg);
+    }
+    .chat-input i{
+      color: var(--navbar-bg);
+    }
+    .chatbox .incoming p{
+      background-color: var(--hover-color);
+      color: var(--navbar-bg);
+    }
+    </style>
 </head>
 <body>
-    <div class="theme-switcher">
-        <select id="theme-select">
-            <option value="original"><i class="bi bi-brightness-high-fill"></i> Original</option>
-            <option value="light"><i class="bi bi-sun-fill"></i> Claro</option>
-            <option value="dark"><i class="bi bi-moon-fill"></i> Oscuro</option>
-        </select>
+    <div class="theme-container">
+        <div class="theme-label">Seleccione un modo:</div>
+        <div class="theme-switcher">
+            <select id="theme-select">
+                <option value="original"><i class="bi bi-brightness-high-fill"></i> Predeterminado</option>
+                <option value="light"><i class="bi bi-sun-fill"></i> Día</option>
+                <option value="dark"><i class="bi bi-moon-fill"></i> Noche</option>
+            </select>
+        </div>
     </div>
 
     <script>

@@ -5,35 +5,19 @@
 <style>
     .translate-container {
       position: fixed;
-      top: 610px;
-      left: 0;
+      top: 200px;
+      right: 20px;
       z-index: 1000;
       font-size: 10px;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
     }
-
-    #translate-icon {
-      font-size: 30px;
-      color: white;
-      background-color: #007bff;
-      padding: 10px;
-      border-radius: 50%;
+    .goog-te-gadget-simple{
+      border-radius: 10px;
+      font-size: 11.5px;
     }
-
-    .translate-menu {
-      display: none;
-      margin-top: 10px;
-      background-color: white;
-      border-radius: 5px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .translate-menu.active {
-      display: block;
-      animation: fadeIn 0.3s ease-in-out;
-    }
+    
+    
 
     .skiptranslate iframe {
       opacity: 0 !important;
@@ -54,7 +38,7 @@
     body {
       top: 0px !important;
     }
-
+    
 
 
     @keyframes fadeIn {
@@ -67,13 +51,14 @@
         transform: translateY(0);
       }
     }
+    
   </style>
 </head>
+
 <body>
   <div class="translate-container">
     <div id="google_translate_element"></div>
   </div>
-    
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       function googleTranslateElementInit() {

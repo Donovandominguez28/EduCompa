@@ -86,7 +86,5 @@ include '../php/datosPerfil.php';
   <script src="../js/avanzo.js"></script>
   <script src="../js/script.js" defer></script>
 </body>
-<?php 
-include '../html/changesMode.php';
-?>
+
 </html>

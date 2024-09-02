@@ -39,6 +39,7 @@ $carnet = $_SESSION['carnet']; // Asegúrate de que el carnet esté almacenado e
             padding: 1em 2em;
             background: #153f59;
             box-shadow: 0 0 20px #ddd;
+            border-radius: 10px;
         }
         h1 {
             text-align: center;
@@ -113,7 +114,7 @@ $carnet = $_SESSION['carnet']; // Asegúrate de que el carnet esté almacenado e
 </main>
 </body>
 <?php 
-include '../html/changesMode.php';
+include '../html/btnCmT.php';
 ?>
 <script>
     document.getElementById('imagenMural').addEventListener('change', function(event) {

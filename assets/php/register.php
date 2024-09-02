@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("issssssss", $carnet, $fotoPerfilContent, $nombreCompleto, $añoBachi, $seccion, $especialidad, $usuario, $email, $contrasena);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "success", "redirect" => "../html/login.html"]);
+        echo json_encode(["status" => "success", "redirect" => "../html/login.php"]);
     } else {
         echo json_encode(["status" => "error", "message" => "Ha ocurrido un error al registrar los datos. Inténtelo nuevamente."]);
     }
