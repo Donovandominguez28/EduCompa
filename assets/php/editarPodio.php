@@ -25,17 +25,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descripcion = !empty($_POST['descripcion']) ? $_POST['descripcion'] : $currentDescripcion;
     $foto = !empty($_FILES['foto']['tmp_name']) ? file_get_contents($_FILES['foto']['tmp_name']) : $currentFoto;
 
-    // Prepare and execute the update query
-    $stmt = $conn->prepare("UPDATE podio SET top = ?, foto = ?, nombreApellido = (SELECT nombreCompleto FROM estudiantes WHERE carnet = ?), descripcion = ? WHERE idPodio = ?");
-    $stmt->bind_param("isssi", $top, $foto, $estudiante, $descripcion, $idPodio);
+    // Check if another student is already in the new top position
+    $stmtCheck = $conn->prepare("SELECT idPodio FROM podio WHERE top = ? AND idPodio != ?");
+    $stmtCheck->bind_param("ii", $top, $idPodio);
+    $stmtCheck->execute();
+    $stmtCheck->store_result();
+
+    if ($stmtCheck->num_rows > 0) {
+        // Another student holds the new top position, we need to swap
+        $stmtCheck->bind_result($otherIdPodio);
+        $stmtCheck->fetch();
+        $stmtCheck->close();
+
+        // Swap the other student's position to the currentTop
+        $stmtSwap = $conn->prepare("UPDATE podio SET top = ? WHERE idPodio = ?");
+        $stmtSwap->bind_param("ii", $currentTop, $otherIdPodio);
+        $stmtSwap->execute();
+        $stmtSwap->close();
+    } else {
+        $stmtCheck->close();
+    }
+
+    // Update the current student's podio record
+    $stmtUpdate = $conn->prepare("UPDATE podio SET top = ?, foto = ?, nombreApellido = (SELECT nombreCompleto FROM estudiantes WHERE carnet = ?), descripcion = ? WHERE idPodio = ?");
+    $stmtUpdate->bind_param("isssi", $top, $foto, $estudiante, $descripcion, $idPodio);
     
-    if ($stmt->execute()) {
+    if ($stmtUpdate->execute()) {
         echo "<script>alert('Podio actualizado exitosamente.'); window.location.href='../html/podio.php';</script>";
     } else {
         echo "<script>alert('Error al actualizar podio.'); window.location.href='../html/podio.php';</script>";
     }
 
-    $stmt->close();
+    $stmtUpdate->close();
     $conn->close();
 }
 ?>

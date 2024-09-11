@@ -46,6 +46,21 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     });
 });
 
+// Detectar cuando ambos campos están completos
+let emailInput = document.getElementById('email');
+let contrasenaInput = document.getElementById('contrasena');
+
+// Función para enviar el formulario si ambos campos están completos
+function verificarYEnviarFormulario() {
+    if (emailInput.value !== '' && contrasenaInput.value !== '') {
+        document.getElementById('loginForm').submit();
+    }
+}
+
+// Detectar cambios en los campos y verificar si están completos
+emailInput.addEventListener('input', verificarYEnviarFormulario);
+contrasenaInput.addEventListener('input', verificarYEnviarFormulario);
+
 
 function mostrarNotificacion(titulo, descripcion, tipo) {
     const contenedorToast = document.getElementById('contenedor-toast');

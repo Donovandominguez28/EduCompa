@@ -183,6 +183,47 @@
       background-color: var(--hover-color);
       color: var(--navbar-bg);
     }
+    .content .title{
+      color: var(--text-color);
+      text-shadow: 3px 4px 4px var(--navbar-bg);
+
+    }
+    .content .des{
+    color: var(--text-color);
+    text-shadow: 3px 4px 4px var(--navbar-bg);
+
+}
+.content .btnC button:nth-child(1){
+  color: var(--text-color);
+  text-shadow: 3px 4px 4px var(--navbar-bg);
+
+}
+
+.content .btnC button:nth-child(2){
+    color: var(--text-color);
+    text-shadow: 3px 4px 4px var(--navbar-bg);
+
+}
+
+.content .btnC button:nth-child(2):hover{
+    background-color: var(--navbar-bg);
+    color: var(--text-color);
+    border-color: var(--hover-color);
+}
+.content .btnC button:nth-child(1):hover{
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+  border-color: var(--hover-color);
+}
+.arrows button{
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
+}
+
+.arrows button:hover{
+    background: var(--hover-color);
+    color: var(--navbar-bg);
+}
     </style>
 </head>
 <body>

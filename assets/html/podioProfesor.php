@@ -90,10 +90,16 @@ include '../php/conexion.php';
                 </div>
                 <div class="modal-body">
                     <form id="addForm" method="POST" enctype="multipart/form-data" action="../php/agregarPodioProfesor.php">
-                        <div class="mb-3">
-                            <label for="addTop" class="form-label">Top</label>
-                            <input type="number" class="form-control" id="addTop" name="top" required>
-                        </div>
+                    <div class="mb-3">
+    <label for="addTop" class="form-label">Top</label>
+    <select class="form-control" id="addTop" name="top" required>
+        <option value="">Seleccione un puesto</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+
                         <div class="mb-3">
                             <label for="addEstudiante" class="form-label">Seleccionar Estudiante</label>
                             <select class="form-control" id="addEstudiante" name="estudiante" required>
@@ -136,9 +142,15 @@ include '../php/conexion.php';
                     <form id="editForm" method="POST" enctype="multipart/form-data" action="../php/editarPodio2.php">
                         <input type="hidden" id="editIdPodio" name="idPodio">
                         <div class="mb-3">
-                            <label for="editTop" class="form-label">Top</label>
-                            <input type="number" class="form-control" id="editTop" name="top" required>
-                        </div>
+    <label for="editTop" class="form-label">Top</label>
+    <select class="form-control" id="editTop" name="top" required>
+        <option value="">Seleccione un puesto</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+
                         <div class="mb-3">
                             <label for="editEstudiante" class="form-label">Seleccionar Estudiante</label>
                             <select class="form-control" id="editEstudiante" name="estudiante" required>
@@ -226,28 +238,34 @@ include '../php/conexion.php';
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/scriptAdmin.js"></script>
     <script>
-    // Código JavaScript para llenar los campos del formulario de edición
-    var editModal = document.getElementById('editModal')
-    editModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget
-        var idPodio = button.getAttribute('data-idpodio')
-        var top = button.getAttribute('data-top')
-        var foto = button.getAttribute('data-foto')
-        var nombreApellido = button.getAttribute('data-nombreapellido')
-        var descripcion = button.getAttribute('data-descripcion')
+    var editModal = document.getElementById('editModal');
+editModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+    var idPodio = button.getAttribute('data-idpodio');
+    var top = button.getAttribute('data-top');
+    var nombreApellido = button.getAttribute('data-nombreapellido');
+    var descripcion = button.getAttribute('data-descripcion');
 
-        var modalBodyInputIdPodio = editModal.querySelector('#editIdPodio')
-        var modalBodyInputTop = editModal.querySelector('#editTop')
-        var modalBodyInputFoto = editModal.querySelector('#editFoto')
-        var modalBodyInputNombreApellido = editModal.querySelector('#editNombreApellido')
-        var modalBodyInputDescripcion = editModal.querySelector('#editDescripcion')
+    var modalBodyInputIdPodio = editModal.querySelector('#editIdPodio');
+    var modalBodyInputTop = editModal.querySelector('#editTop');
+    var modalBodyInputDescripcion = editModal.querySelector('#editDescripcion');
 
-        modalBodyInputIdPodio.value = idPodio
-        modalBodyInputTop.value = top
-        modalBodyInputFoto.value = foto
-        modalBodyInputNombreApellido.value = nombreApellido
-        modalBodyInputDescripcion.value = descripcion
-    })
+    modalBodyInputIdPodio.value = idPodio;
+    modalBodyInputTop.value = top;
+    modalBodyInputDescripcion.value = descripcion;
+
+    // Validación de si hay un cambio en el puesto del top
+    modalBodyInputTop.addEventListener('change', function () {
+        var selectedTop = modalBodyInputTop.value;
+
+        // Aquí puedes hacer una validación con AJAX o mostrar un mensaje en caso de cambio de posición
+        // Ejemplo básico de alerta:
+        if (selectedTop !== top) {
+            alert('Al cambiar el top, se intercambiará con otro estudiante.');
+        }
+    });
+});
+
 
     // Código JavaScript para llenar los campos del formulario de eliminación
     var confirmDeleteModal = document.getElementById('confirmDeleteModal')
@@ -259,5 +277,6 @@ include '../php/conexion.php';
         modalBodyInputIdPodio.value = idPodio
     })
     </script>
+    
 </body>
 </html>

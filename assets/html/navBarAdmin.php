@@ -28,7 +28,6 @@ if (isset($_SESSION['idAdmin'])) {
 <?php
 include '../html/translate2.php';
 include '../html/changesmode2.php';
-include '../html/compaBot.php';
 
 ?>
 

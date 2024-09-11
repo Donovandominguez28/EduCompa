@@ -3,18 +3,20 @@ include "../php/conexion.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $email_or_usuario = $_POST['email'];  // Este campo ahora será tanto para email como para usuario
     $contrasena = $_POST['contrasena'];
 
-    if (empty($email) || empty($contrasena)) {
-        echo json_encode(["status" => "error", "message" => "Por favor, ingrese su email y contraseña."]);
+    if (empty($email_or_usuario) || empty($contrasena)) {
+        echo json_encode(["status" => "error", "message" => "Por favor, ingrese su email/usuario y contraseña."]);
         exit();
     }
 
-    function verificarUsuario($conn, $email, $contrasena, $tabla, $idCampo, $contrasenaCampo, $redirect) {
-        $sql = "SELECT * FROM $tabla WHERE email = ?";
+    // Función para verificar al usuario ya sea con correo o con nombre de usuario
+    function verificarUsuario($conn, $email_or_usuario, $contrasena, $tabla, $idCampo, $contrasenaCampo, $redirect) {
+        // Modificamos la consulta para permitir tanto email como usuario
+        $sql = "SELECT * FROM $tabla WHERE email = ? OR usuario = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("ss", $email_or_usuario, $email_or_usuario);  // Se envía el mismo valor dos veces (para email y usuario)
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -28,22 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo json_encode(["status" => "success", "redirect" => $redirect]);
                 exit();
             } else {
-                echo json_encode(["status" => "error", "message" => "Email o contraseña incorrectos"]);
+                echo json_encode(["status" => "error", "message" => "Email, usuario o contraseña incorrectos"]);
                 exit();
             }
         }
     }
 
     // Verificar estudiantes
-    verificarUsuario($conn, $email, $contrasena, "estudiantes", "carnet", "contrasena", "../html/index.php");
+    verificarUsuario($conn, $email_or_usuario, $contrasena, "estudiantes", "carnet", "contrasena", "../html/index.php");
 
     // Verificar administradores
-    verificarUsuario($conn, $email, $contrasena, "administrador", "idAdmin", "contrasena", "../html/indexAdmin.php");
+    verificarUsuario($conn, $email_or_usuario, $contrasena, "administrador", "idAdmin", "contrasena", "../html/indexAdmin.php");
 
     // Verificar profesores
-    verificarUsuario($conn, $email, $contrasena, "profesor", "idProfesor", "contrasena", "../html/indexProfesor.php");
+    verificarUsuario($conn, $email_or_usuario, $contrasena, "profesor", "idProfesor", "contrasena", "../html/indexProfesor.php");
 
     // Si ninguna verificación tuvo éxito
-    echo json_encode(["status" => "error", "message" => "Email o contraseña incorrectos"]);
+    echo json_encode(["status" => "error", "message" => "Email, usuario o contraseña incorrectos"]);
 }
 ?>

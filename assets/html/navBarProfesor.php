@@ -30,7 +30,6 @@ if (isset($_SESSION['idProfesor'])) {
 <?php
 include '../html/translate2.php';
 include '../html/changesmode2.php';
-include '../html/compaBot.php';
 
 ?>
 <!-- Barra de navegación -->

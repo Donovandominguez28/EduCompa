@@ -195,8 +195,8 @@
             <br>
             <div class="input-group mb-3">
                 <i class="bi bi-envelope"></i>
-                <label>Email</label>
-                <input type="email" class="form-control" name="email">
+                <label>Email/Usuario</label>
+                <input type="text" class="form-control" name="email" id="email">
             </div>
             <div class="input-group mb-3">
                 <i class="bi bi-lock"></i>
@@ -205,7 +205,7 @@
 
                 <div class="input-group">
                    
-                    <input type="password" class="form-control" name="contrasena" id="loginPassword">
+                    <input type="password" class="form-control" name="contrasena" id="loginPassword" id="contrasena">
                     
                 </div>
             </div>
