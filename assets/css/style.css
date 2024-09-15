@@ -749,6 +749,7 @@ img {
 
 /*=============== CARD aula ===============*/
 .containeraula {
+
   display: grid;
   margin-inline: 1.5rem;
   padding-block: 5rem;
@@ -832,6 +833,8 @@ img {
 /* Card animation */
 .card__articleaula:hover .card__imgaula {
   transform: translateY(-1.5rem);
+  opacity: 0;
+
 }
 
 .card__articleaula:hover .card__dataaula {
@@ -868,7 +871,8 @@ img {
 /* For large devices */
 @media screen and (min-width: 1120px) {
   .containeraula {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     display: grid;
     align-items: center;
   }
@@ -1318,20 +1322,21 @@ img {
 
 /* For large devices */
 @media screen and (min-width: 1120px) {
-  .containerrr {
-    height: 100vh;
-  }
 
   .card__container {
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 2.5rem;
+    
   }
   .card__img {
     max-width: 348px;
   }
   .card__data {
-    width: 80%;
+    width: 100%;
     max-width: 316px;
     padding-inline: 2.5rem;
+    padding: 1rem;
+
   }
 }
 

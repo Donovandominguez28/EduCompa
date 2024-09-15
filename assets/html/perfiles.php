@@ -119,28 +119,27 @@ if (!$profilesResult) {
         }
         ?>
     </section>
-    <style>
-    .card__container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+<style>
+   .card__container {
+    position: relative;
+}
 
-    .card__article {
-        margin-bottom: 4em;
-    }
+.card__article {
+    margin-bottom: 3em; /* Espacio suficiente para los botones */
+    padding-bottom: 6em; /* Espacio para los botones en la parte inferior */
+}
+.card__image-container {
+    max-height: 300px; /* Ajusta según el tamaño máximo deseado */
+    overflow: hidden;
+}
 
-    .card__image-container {
-        max-height: 400px;
-        overflow: hidden;
-    }
+.card__img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* Ajusta según el tamaño máximo deseado */
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+}
 
-    .card__img {
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        object-fit: cover;
-    }
     </style>
     <?php include '../html/footer.php'; ?>
     

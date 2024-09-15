@@ -108,7 +108,7 @@ $carnet7 = $_SESSION['carnet']; // Supongo que tienes guardado el carnet en la s
 .card__articleaula {
   padding: 1rem;
   border-radius: 0.5rem;
-  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro para mejor legibilidad */
+  /*background: rgba(0, 0, 0, 0.6);  Fondo oscuro para mejor legibilidad */
   color: white; /* Color del texto */
 }
 

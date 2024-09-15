@@ -88,7 +88,6 @@
         .header {
           background-color: transparent;
           color: var(--text-color);
-          transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .header.active {

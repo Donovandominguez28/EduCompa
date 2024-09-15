@@ -12,17 +12,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Función para verificar al usuario ya sea con correo o con nombre de usuario
-    function verificarUsuario($conn, $email_or_usuario, $contrasena, $tabla, $idCampo, $contrasenaCampo, $redirect) {
-        // Modificamos la consulta para permitir tanto email como usuario
-        $sql = "SELECT * FROM $tabla WHERE email = ? OR usuario = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $email_or_usuario, $email_or_usuario);  // Se envía el mismo valor dos veces (para email y usuario)
+    function verificarUsuario($conn, $email_or_usuario, $contrasena, $tabla, $idCampo, $contrasenaCampo, $redirect, $esEstudiante = false) {
+        if ($esEstudiante) {
+            // Si es estudiante, buscar por email o usuario
+            $sql = "SELECT * FROM $tabla WHERE email = ? OR usuario = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $email_or_usuario, $email_or_usuario);  // Se envía el mismo valor dos veces (para email y usuario)
+        } else {
+            // Si es administrador o profesor, buscar solo por email
+            $sql = "SELECT * FROM $tabla WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $email_or_usuario);
+        }
+
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
-            if ($contrasena === $user[$contrasenaCampo]) {
+            // Comparar contraseñas en texto plano (sin hash)
+            if ($contrasena === $user[$contrasenaCampo]) {  
                 $_SESSION[$idCampo] = $user[$idCampo];
                 if (isset($user['fotoPerfil'])) {
                     $_SESSION['fotoPerfil'] = base64_encode($user['fotoPerfil']);
@@ -37,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Verificar estudiantes
-    verificarUsuario($conn, $email_or_usuario, $contrasena, "estudiantes", "carnet", "contrasena", "../html/index.php");
+    verificarUsuario($conn, $email_or_usuario, $contrasena, "estudiantes", "carnet", "contrasena", "../html/index.php", true);
 
     // Verificar administradores
     verificarUsuario($conn, $email_or_usuario, $contrasena, "administrador", "idAdmin", "contrasena", "../html/indexAdmin.php");
